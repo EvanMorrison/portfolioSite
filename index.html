@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--Required meta tags must come first-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Evan Morrison</title>
+
+    <!-- Devicons -->
+    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
+
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Montserrat" rel="stylesheet">
+    <!-- some google font names
+        BODY TEXT FONTS: Open Sans, Roboto, Lato, Kelly Slab, Mallanna, Syncopate, Prompt, Nobile, Days One
+        TITLE FONTS: Poller One, Bowlby One, Montserrat Subrayada, Rubik One, Passion One, Oswald, Lalezar, Baloo Bhai, Ruslan Display
+    -->
+
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+    <!-- Angular Material CSS -->
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+
+    <!-- Local CSS-->
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+
+<body ng-app="MyApp" ng-cloak layout="column" ng-controller="PortfolioController as pc">
+
+
+    <md-toolbar>
+        <h1>Evan Morrison</h1>
+    </md-toolbar>
+    <div class="container" layout="row" flex>
+        <md-sideview class="lightblue" flex=20>
+            Sideview
+        </md-sideview>
+        <md-content class="lightgreen" flex>
+            Content
+        </md-content>
+    </div>
+
+
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-aria.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.js"></script>
+
+    <!-- UI-Router -->
+    <script src="//angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
+
+    <!-- local js -->
+    <script src="app.js"></script>
+    <!--<script src="./mainView/mainView.ctrl.js"></script>-->
+    <script>
+        angular.module("MyApp", ['ngMaterial' , 'portfolio', 'ui.router'])
+            .run(function(){
+            console.log('My App is Ready');
+            
+            });
+    </script>
+</body>
+
+</html>
