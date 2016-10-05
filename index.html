@@ -1,71 +1,133 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<!--
+	Strata by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
 
 <head>
-    <!--Required meta tags must come first-->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>Evan Morrison</title>
-
-    <!-- Devicons -->
-    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
-
-    <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Roboto|Montserrat" rel="stylesheet">
-    <!-- some google font names
-        BODY TEXT FONTS: Open Sans, Roboto, Lato, Kelly Slab, Mallanna, Syncopate, Prompt, Nobile, Days One
-        TITLE FONTS: Poller One, Bowlby One, Montserrat Subrayada, Rubik One, Passion One, Oswald, Lalezar, Baloo Bhai, Ruslan Display
-    -->
-
-    <!-- FontAwesome CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-
-    <!-- Angular Material CSS -->
-    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
-
-    <!-- Local CSS-->
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 </head>
 
-<body ng-app="MyApp" ng-cloak layout="column" ng-controller="PortfolioController as pc">
+<body id="top">
 
+    <!-- Header -->
+    <header id="header">
+        <div class="inner">
+            <a href="#" class="image avatar"><img src="./images/avatar.jpg" alt="" /></a>
+            <h1>I am <strong>Evan Morrison</strong>, a full stack <br />web developer
+                <br />building responsive sites<br /> using the MEAN stack.
+                <br/>
+                I am currently attending the full stack development course
+                <br/>at <strong>V School</strong></h1>
+        </div>
+    </header>
 
-    <md-toolbar>
-        <h1>Evan Morrison</h1>
-    </md-toolbar>
-    <div class="container" layout="row" flex>
-        <md-sideview class="lightblue" flex=20>
-            Sideview
-        </md-sideview>
-        <md-content class="lightgreen" flex>
-            Content
-        </md-content>
+    <!-- Main -->
+    <div id="main">
+
+        <!-- One -->
+        <section id="one">
+            <header class="major">
+                <h2>About Me<br />
+                </h2>
+            </header>
+            <p>I embarked on my career as a web developer after many years in the practice of law. I've always been drawn
+                to technology and coding and finally made the move. I gained a ton of incredible experience and knowledge
+                druing my time as a lawyer, but it took me a while to realize my true calling. And now its full speed ahead.
+                </p>
+            <ul class="actions">
+                <li><a href="./ERM-Resume-2016.pdf" class="button" download>Resum&eacute;</a></li>
+            </ul>
+        </section>
+
+        <!-- Two -->
+        <section id="two">
+            <h2>Recent Work</h2>
+            <div class="row">
+                <article class="6u 12u$(xsmall) work-item">
+                    <a href="./images/projects/mario-1298x770.png" class="image fit thumb"><img src="./images/projects/mario-1298x770.png" alt="" /></a>
+                    <h3>Mario Pest Control</h3>
+                    <p>A sigle page site themed after the Mario video game, that includes CSS animations, and responsive design
+                        using Bootstrap</p>
+                </article>
+                <article class="6u$ 12u$(xsmall) work-item">
+                    <a href="./images/projects/madLib-842x513.png" class="image fit thumb"><img src="./images/projects/madLib-842x513.png" alt="" /></a>
+                    <h3>Mad Lib Style in AngularJS</h3>
+                    <p>A single page app built with Angular and Bootstrap that creates a mad-lib type story.</p>
+                </article>
+                <article class="6u 12u$(xsmall) work-item">
+                    <a href="./images/projects/carView-1086x609.png" class="image fit thumb"><img src="./images/projects/carView-1086x609.png" alt="" /></a>
+                    <h3>Dragable Mighty Clicker</h3>
+                    <p></p>
+                </article>
+              
+            </div>
+            <ul class="actions">
+                <li><a href="./ERM-Resume-2016.pdf" class="button" download>Resum&eacute;</a></li>
+            </ul>
+        </section>
+
+        <!-- Three -->
+        <section id="three">
+            <h2>Get In Touch</h2>
+            <p>I can be reached by any of the methods listed below. I'd love to hear from you and connect.</p>
+            <div class="row">
+                
+                <div class="4u$ 12u$(small)">
+                    <ul class="labeled-icons">
+
+                        <li>
+                            <h3 class="icon fa-mobile"><span class="label">Phone</span></h3>
+                            801-792-9290
+                        </li>
+                        <li>
+                            <h3 class="icon fa-envelope-o"><span class="label">Email</span></h3>
+                            <a href="maitlto:evanrmorrison@gmail.com">evanrmorrison@gmail.com</a>
+                        </li>
+                        <li>
+                            <h3 class="icon fa-github"><span class="label">Github</span></h3>
+                            <a href="https://github.com/EvanMorrison">github.com/EvanMorrison</a>
+                        </li>
+                        <li>
+                            <h3 class="icon fa-linkedin"><span class="label">LindedIn</span></h3>
+                            <a href="https://www.linkedin.com/in/evan-morrison">linkedin.com/in/evan-morrison</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
     </div>
 
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <ul class="icons">
 
-    <!-- AngularJS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-aria.js"></script>
+                <li><a href="#" class="icon fa-phone"><span class="label">Mobile</span></a></li>
+                <li><a href="" class="icon fa-github"><span class="label">Github</span></a></li>
+                <li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
 
-    <!-- Angular Material Library -->
-    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.js"></script>
+                <li><a href="mailto:evanrmorrison@gmail.com" class="icon fa-envelope-o"><span class="label">Email: evanrmorrison@gmail.com</span></a></li>
+            </ul>
 
-    <!-- UI-Router -->
-    <script src="//angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
+        </div>
+    </footer>
 
-    <!-- local js -->
-    <script src="app.js"></script>
-    <!--<script src="./mainView/mainView.ctrl.js"></script>-->
-    <script>
-        angular.module("MyApp", ['ngMaterial' , 'portfolio', 'ui.router'])
-            .run(function(){
-            console.log('My App is Ready');
-            
-            });
-    </script>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.poptrox.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="assets/js/main.js"></script>
+
 </body>
 
 </html>
