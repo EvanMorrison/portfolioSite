@@ -1,4 +1,6 @@
 .DS_Store/
 images/misc/
 icons/
+node_modules/
+
 
