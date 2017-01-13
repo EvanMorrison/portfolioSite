@@ -1,4 +1,6 @@
+node_modules/
+dist/
+images/
 .DS_Store/
-images/misc/
-icons/
-
+*.log
+*.ignore
