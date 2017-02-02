@@ -10,22 +10,37 @@ body {
   font-size: 15px;
 }
 
-.jumbo {
-  background-image: url('./assets/fbg03.jpg');
-  background-size: cover;
-  
+a {
+  color: #ff4081;
+  text-decoration: none;
 }
 
+a:hover {
+  text-decoration: underline;
+}
+.title-group {
+  position: absolute;
+  top: 30vh;
+  width: 100%;
+}
 .main-title {
+  font-size: 50px;
+}
+
+.sub-title {
+}
+
+.main-title, .sub-title, .footer {
   font-weight: 300;
+  width: 100%;
   text-align: center;
-
+  margin-top: 20px;
+  /*color: white;*/
 }
 
-.app-bar {
-  position: 'fixed';
-  top: 0;
-  display: flex;
-  background-image: url('./assets/fbg03.jpg');
-  background-size: cover;
+p.about-me {
+  margin-bottom: 20px;
 }
+
+
+
