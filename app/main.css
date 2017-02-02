@@ -10,6 +10,12 @@ body {
   font-size: 15px;
 }
 
+.jumbo {
+  background-image: url('./assets/fbg03.jpg');
+  background-size: cover;
+  
+}
+
 .main-title {
   font-weight: 300;
   text-align: center;
@@ -20,4 +26,6 @@ body {
   position: 'fixed';
   top: 0;
   display: flex;
+  background-image: url('./assets/fbg03.jpg');
+  background-size: cover;
 }

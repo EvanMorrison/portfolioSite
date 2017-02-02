@@ -1,3 +1,4 @@
+var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
     template: __dirname + '/app/index.html',
@@ -7,6 +8,8 @@ var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 
 module.exports = {
     entry: [
+        'webpack-dev-server/client?http://localhost:8080', // <-- Enables websocket connection(needs url and port)
+        'webpack/hot/only-dev-server', // <-- to perform HMR in the browser, "only" prevents reload on syntax errors
         './app/index.js'
     ],
     output: {
@@ -14,14 +17,16 @@ module.exports = {
         filename: 'index_bundle.js'
     },
     devServer: {
-        port: 5500
+        hot: true,
+        contentBase: './dist'
     },
     module: {
         loaders: [
             {test:/\.js$/, exclude: /node_modules/, loader: "babel-loader"},
+            {test:/\.(jpg|png)$/, loader:"url-loader"},
             {test:/\.css$/, loader:"style-loader!css-loader"}
         ]
     },
-    plugins: [HTMLWebpackPluginConfig]
+    plugins: [new webpack.HotModuleReplacementPlugin(), HTMLWebpackPluginConfig]
     
 }
