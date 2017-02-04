@@ -9,7 +9,7 @@ const styles = {
   sectionHeading: {
         textAlign: 'center',
         fontSize: 30,
-        marginBottom: 15,
+        margin: '20px 0 15px',
         fontWeight: 100,
       },
 
