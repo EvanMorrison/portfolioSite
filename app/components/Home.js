@@ -8,10 +8,11 @@ class Home extends Component {
         position: 'relative',
         height: '60vh',
         minHeight: '500px',
-        backgroundImage: 'url(./assets/people-coffee-notes-tea.jpg)',
+        backgroundImage: 'url(http://i.imgur.com/zoU5shZ.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         overflow: 'hidden',
+        marginBottom: '80'
       },
       shadow: {
         position: 'absolute',

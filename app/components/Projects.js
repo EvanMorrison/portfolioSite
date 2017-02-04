@@ -7,7 +7,7 @@ class Projects extends Component {
       <div style={styles.sectionStyle}>
         <h1 style={styles.sectionHeading}>Sample Work</h1>
         <div style={styles.sectionContent}>
-          <p className="about-me">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque voluptate repudiandae quo praesentium a porro accusantium recusandae deleniti, cupiditate esse, iusto repellat molestiae neque repellendus.
+          <p className="body-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque voluptate repudiandae quo praesentium a porro accusantium recusandae deleniti, cupiditate esse, iusto repellat molestiae neque repellendus.
           </p>
         </div>
       </div>

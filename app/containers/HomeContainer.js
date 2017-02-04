@@ -15,7 +15,6 @@ class HomeContainer extends Component {
         <AboutMe styles={styles}/>
         {/*<Projects styles={styles}/>*/}
       </div>
-
     )
   }
 }
