@@ -4,7 +4,8 @@
   "description": "personal portfolio site",
   "main": "index.js",
   "scripts": {
-    "start": "node ./server.js",
+    "start": "npm-run-all build serve",
+    "serve": "node ./server.js",
     "build": "NODE_ENV=production webpack -p"
   },
   "repository": {
