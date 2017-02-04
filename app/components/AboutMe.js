@@ -47,7 +47,7 @@ class AboutMe extends Component {
             {icons.css3}
             {icons.js}
             {icons.angularjs}
-            {icons.react}
+            {icons.reactjs}
             {icons.jquery}
             {icons.github}
             {icons.git}
