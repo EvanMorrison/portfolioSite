@@ -27,7 +27,8 @@ class MainContainer extends Component {
         backgroundImage: 'url(./assets/fbg03.jpg)',
         backgroundSize: 'cover',
         marginBottom: 80,
-        background: 'rgba(0,0,0,.25)'
+        background: 'rgba(0,0,0,.25)',
+        display: 'none'
       },
       content: {
         margin: spacing.desktopGutter,

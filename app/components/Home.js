@@ -6,8 +6,9 @@ class Home extends Component {
     return {
       root: {
         position: 'relative',
-        minHeight: '100vh',
-        backgroundImage: 'url(./assets/woman_facing_morning_sun.jpg)',
+        height: '60vh',
+        minHeight: '500px',
+        backgroundImage: 'url(./assets/people-coffee-notes-tea.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         overflow: 'hidden',
@@ -15,18 +16,12 @@ class Home extends Component {
       shadow: {
         position: 'absolute',
         display: 'block',
-        background: 'rgba(255,240,240,.75)',
+        background: 'rgba(255,250,250,.75)',
         top: 0,
         height: '100%',
         width: '100%'
-      },
-      footer: {
-        position: 'absolute',
-        bottom: 0,
-        margin: 20,
-        // color: 'white',
-        textAlign: 'center'
       }
+      
     }
   }
   render() {
@@ -39,7 +34,7 @@ class Home extends Component {
         <h1 className="main-title">Evan Morrison</h1>
         <h2 className="sub-title">Web Developer</h2>
       </div>
-      <div className="footer" style={styles.footer}>scroll down</div>
+      
         </div>
         </div>
     </div>

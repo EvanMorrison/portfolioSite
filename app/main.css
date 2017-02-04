@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:500,400,300');
+@import url('https://fonts.googleapis.com/css?family=Roboto:900,700,500,400,300,100');
 
 * {
   padding: 0;
@@ -24,23 +24,42 @@ a:hover {
   width: 100%;
 }
 .main-title {
+  text-shadow: 0 0 10 black;
   font-size: 50px;
+  font-family: Roboto;
+  /*font-family: 'Helvetica Neue';*/
 }
 
-.sub-title {
-}
-
-.main-title, .sub-title, .footer {
-  font-weight: 300;
+.main-title, .sub-title {
+  font-weight: 100;
   width: 100%;
   text-align: center;
   margin-top: 20px;
-  /*color: white;*/
+  text-shadow: 1px 1px 3px #555;
+  color: #0a0a0a;
 }
 
+.footer {
+  width: 100%;
+  text-align: center;
+  color: #555;
+}
 p.about-me {
   margin-bottom: 20px;
 }
+/*.section-heading {
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 15px;
+        font-weight: 100;
+      }
 
+.section-content {
+        max-width: 700px;
+        text-align: justify;
+        font-weight: 100;
+        font-size: 18px;
+        line-height: 28px;
+      }
 
-
+*/

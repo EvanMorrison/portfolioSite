@@ -9,13 +9,14 @@ var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 module.exports = {
     entry: [
         'webpack-dev-server/client?http://localhost:8080', // <-- Enables websocket connection(needs url and port)
-        'webpack/hot/only-dev-server', // <-- to perform HMR in the browser, "only" prevents reload on syntax errors
+        'webpack/hot/dev-server', // <-- to perform HMR in the browser, "only" prevents reload on syntax errors
         './app/index.js'
     ],
     output: {
         path: __dirname + '/dist',
         filename: 'index_bundle.js'
     },
+    devtool: 'eval',
     devServer: {
         hot: true,
         contentBase: './dist'
