@@ -13,8 +13,9 @@ class HomeContainer extends Component {
         <Home/>
         <Contact styles={styles}/>
         <AboutMe styles={styles}/>
-        {/*<Projects styles={styles}/>*/}
+        <Projects styles={styles}/>
       </div>
+
     )
   }
 }

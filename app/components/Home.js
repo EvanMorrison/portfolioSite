@@ -12,7 +12,7 @@ class Home extends Component {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         overflow: 'hidden',
-        marginBottom: '80'
+        marginBottom: '80px'
       },
       shadow: {
         position: 'absolute',
