@@ -26,7 +26,7 @@ class MainContainer extends Component {
         top: 0,
         backgroundImage: 'url(./assets/fbg03.jpg)',
         backgroundSize: 'cover',
-        marginBottom: 80,
+        marginBottom: '80px',
         background: 'rgba(0,0,0,.25)',
         display: 'none'
       },
