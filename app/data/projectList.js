@@ -19,47 +19,38 @@ const projectList = [{
         imgUrl: projectUrls['Shopping List'],
         gitUrl: "https://github.com/EvanMorrison/Mothers-Shopping-List",
         frameworks: ['jQuery', 'Bootstrap']
-      },
-      {
-        siteUrl: "https://mario-pest-control.herokuapp.com/",
+      },{
         name: "Mario Pest Control",
+        siteUrl: "https://mario-pest-control.herokuapp.com/",
         imgUrl: projectUrls['Mario Pest Control'],
         gitUrl: "https://github.com/EvanMorrison/Mario-Pest-Control",
         frameworks: ['HTML5', 'CSS3', 'jQuery']
-      },
-      {
-        siteUrl: "#",
+      },{
         name: "Pokemon Profiles",
+        siteUrl: "#",
         imgUrl: projectUrls['Pokemon Profiles'],
         gitUrl: "https://github.com/EvanMorrison/pokeProfile",
         frameworks: ['AngularJS', 'Angular UI', 'Bootstrap', 'express','Nodejs']
-      },
-      {
-        siteUrl: "#",
+      },{
         name: "CarView Project",
+        siteUrl: "#",
         imgUrl: projectUrls['CarView Project'],
         gitUrl: "https://github.com/EvanMorrison/carShowDB",
         frameworks: ['AngularJS', 'Angular UI', 'Bootstrap', 'express', 'Nodejs']
-      },
-      {
-        siteUrl: "#",
+      },{
         name: "Everything is Dragable",
+        siteUrl: "#",
         imgUrl: projectUrls['Everything is Dragable'],
         gitUrl: "https://github.com/EvanMorrison/everything-is-dragable",
         frameworks: ['AngularJS']
-      },
-      {
-        siteUrl: "#",
+      },{
         name: "ToDo in Angular",
+        siteUrl: "#",
         imgUrl: projectUrls['ToDo in Angular'],
         gitUrl: "https://github.com/EvanMorrison/AngularJS-toDoWebsite",
         frameworks: ['AngularJS']
-      },
+      }
       ]
 
 
-    // "Pokemon Profiles": "http://imgur.com/PD1caA8.png",
-    // "CarView Project": "http://imgur.com/vfozFIC.png",
-    // "ToDo in Angular": "http://imgur.com/bblk7EA.png",
-    // "Everything is Dragable": "http://imgur.com/sNDqEdO.png"
 export default projectList;
