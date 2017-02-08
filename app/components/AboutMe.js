@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import typography from 'material-ui/styles/typography';
-import SVGIcon from 'material-ui/SvgIcon';
 import { logoUrls } from '../data/imgUrls';
 import { sectionStyle, sectionHeading, paragraph, logoGroup} from './styles';
 

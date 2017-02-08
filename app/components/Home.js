@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import typography from 'material-ui/styles/typography';
 
 class Home extends Component {
   getStyles() {
@@ -34,7 +33,6 @@ class Home extends Component {
         <h1 className="main-title">Evan Morrison</h1>
         <h2 className="sub-title">Web Developer</h2>
       </div>
-      
         </div>
         </div>
     </div>
@@ -42,4 +40,5 @@ class Home extends Component {
   }
 }
 
-export default Home
+export default Home;
+
