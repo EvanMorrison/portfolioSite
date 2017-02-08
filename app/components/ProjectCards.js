@@ -15,23 +15,13 @@ class ProjectCards extends Component {
     )
   }
 
-  handleMouseEnter = () => {
-    console.log('hello', this.myCard);
-
-  }
-  handleMouseLeave = (refName, e) => {
-    
-  }
-
   createProjectCards() {
     return (
-      projectList.filter(el => el.siteUrl.length > 1 ).map(project => {
+      projectList.filter(el => el.siteUrl.length > 2 ).map(project => {
         return (
           <div key={project.name} style={cardStyle}>
             <a href={project.siteUrl} target='_blank'>
-                <Card 
-                      onMouseEnter={(Card) => this.myCard = Card}
-                      zDepth={1}>
+                <Card zDepth={1}>
                   <CardMedia
                       overlay={
                           <CardTitle title={project.name} >
