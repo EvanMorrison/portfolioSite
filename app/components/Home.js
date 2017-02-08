@@ -12,12 +12,11 @@ class Home extends Component {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         overflow: 'hidden',
-        marginBottom: '80px'
       },
       shadow: {
         position: 'absolute',
         display: 'block',
-        background: 'rgba(255,250,250,.75)',
+        background: 'rgba(255,255,255,.6)',
         top: 0,
         height: '100%',
         width: '100%'

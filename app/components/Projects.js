@@ -1,89 +1,18 @@
 import React, { Component } from 'react';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import { logoUrls, projectUrls } from '../imgUrls';
+import ProjectCards from './ProjectCards.js';
+import {sectionStyle, sectionHeading, styles} from './styles';
 
 class Projects extends Component {
-  constructor(props) {
-    super(props)
-    this.projectList =   {
-      "Mad-Lib": {
-        siteUrl: "http://madlibapp.heroku.com",
-        imgUrl: projectUrls['Mad-Lib'],
-        gitUrl: "https://github.com/EvanMorrison/angularjs-madLib",
-        frameworks: ['AngularJS', 'Bootstrap']
-      },
-      "Shopping List": {
-        siteUrl: "http://mothers-shoppinglist.heroku.com",
-        imgUrl: projectUrls['Shopping List'],
-        gitUrl: "https://github.com/EvanMorrison/Mothers-Shopping-List",
-        frameworks: ['jQuery', 'Bootstrap']
-      } 
-    }
-  }
-
-  getCards(styles) {
-    const projects = this.projectList;
-    return (
-      <div style={styles.projects.content}>
-        <a style={{flex:'0 1 40%', minWidth:'400px',marginBottom:'40px'}} href={projects['Mad-Lib'].siteUrl} rel='noopener noreferrer' target='_blank'>
-          <Card >
-            <CardMedia 
-                overlay={
-                    <CardTitle 
-                        title={
-                          <div style={{width:'100%'}}>
-                            Mad Lib 
-                            <img  style={{marginRight:'15px', height:'24px'}} 
-                                  src={logoUrls['AngularJS']} 
-                                  alt="angularjs"/>
-                            <img  style={{marginRight:'15px', height:'24px'}} 
-                                  src={logoUrls['Bootstrap']} 
-                                  alt="bootstrap"/>
-                            <a   style={{position:'absolute',right:'30px'}} 
-                                 href="https://github.com/EvanMorrison/angularjs-madLib"
-                                 target='_blank'>
-                               <img src={logoUrls['Github']} alt="" 
-                                    height='36px'/>
-                            </a>
-                          </div>
-                    }/>
-            }>
-              <img src={projectUrls['Mad-Lib']} alt="madlib"/>
-            </CardMedia>
-          </Card>
-        </a>
-        <a style={{flex:'0 1 40%', minWidth:'400px',marginBottom:'40px'}} href={projects['Shopping List'].siteUrl} rel='noopener noreferrer' target='_blank'>
-          <Card>
-            <CardMedia 
-                overlay={
-                  <CardTitle 
-                      title={
-                        <div>
-                          Shopping List 
-                          <img style={{marginRight:'15px',background:'rgba(255,255,255,.7)'}} src={logoUrls['jQuery']} alt="" height='24px'/>
-                          <img style={{marginRight:'15px'}} src={logoUrls['Bootstrap']} alt="" height='24px'/>
-                          <a style={{position:'absolute',right:'30px'}} target='_blank' href="https://github.com/EvanMorrison/Mothers-Shopping-List">
-                            <img src={logoUrls['Github']} alt="" height='36px'/>
-                          </a>
-                        </div>
-                  }/>
-            }>
-              <img src={projectUrls['Shopping List']} alt="shoppingList"/>
-            </CardMedia>
-          </Card>
-        </a>
-      </div>
-    )
-  }
 
   render() {
-    const styles = this.props.styles
     return (
-      <div style={styles.sectionStyle}>
-        <h1 style={{...styles.sectionHeading, marginBottom:'40px'}}>
-          Sample Projects
+      <div style={{...sectionStyle, backgroundColor:'transparent', paddingBottom:'200px'}}>
+        <h1 style={sectionHeading}>
+          SAMPLE PROJECTS
         </h1>
-        {this.getCards(styles)}
+        <h2 style={{fontWeight:'100',fontSize:'16px'}}>(Clicking a site launches in new tab. Github icon will open the repo)</h2>
+        <ProjectCards />
       </div>
     )
   }
