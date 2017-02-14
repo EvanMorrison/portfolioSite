@@ -21,6 +21,7 @@ const logoUrls = {
 
 const projectUrls = {
     "This Website": "http://imgur.com/QiClm9o.png",
+    "Book Lovers": "http://imgur.com/TwLPREp.png",
     "Shopping List": "http://imgur.com/AQn3Uf2.png",
     "Mad-Lib": "http://imgur.com/nx9CvMA.png",
     "Mario Pest Control": "http://imgur.com/C3zNyhe.png",
