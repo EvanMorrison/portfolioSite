@@ -23,6 +23,7 @@ class Home extends Component {
       
     }
   }
+
   render() {
     const styles = this.getStyles();
   return (

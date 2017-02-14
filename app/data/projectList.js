@@ -8,6 +8,12 @@ const projectList = [{
         gitUrl: "https://github.com/EvanMorrison/portfolioSite",
         frameworks: ['ReactJS','Nodejs','npm','ES6','Babel','Webpack']
       },{
+        name: "Book Reviews",
+        siteUrl: "http://bookreviewspa.herokuapp.com",
+        imgUrl: projectUrls['Book Lovers'],
+        gitUrl: "https://github.com/EvanMorrison/BookReviewSite",
+        frameworks: ['AngularJS', 'Nodejs', 'Express', 'MongoDB']
+      },{
         name: "Mad-Lib",
         siteUrl: "http://madlibapp.heroku.com",
         imgUrl: projectUrls['Mad-Lib'],
