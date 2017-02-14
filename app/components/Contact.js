@@ -16,6 +16,8 @@ class Contact extends React.Component {
           <p style={{margin:'20px'}}>tel: <a href="tel:801-792-9290">801-792-9290</a></p>
           <Divider style={{width:'33%'}} />
           <p style={{margin:'20px'}}>github: <a href="https://github.com/EvanMorrison">EvanMorrison</a></p>
+          <Divider style={{width:'33%'}} />
+          <p style={{margin:'20px'}}>resume: <a href="https://drive.google.com/file/d/0B8qa-UZelBhOQXUzb0h4MDg1Wmc/view?usp=sharing" target="_blank">view/download</a></p>
       </div>
     )
   }
