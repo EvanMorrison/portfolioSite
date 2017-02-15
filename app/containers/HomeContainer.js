@@ -11,11 +11,11 @@ class HomeContainer extends Component {
   render() {
     return (
       <div>
-        <Home/>
-        <Contact/>
-        <AboutMe/>
-        <Break/>
-        <Projects/>
+        <Home name="home" />
+        <Contact name="contact" />
+        <AboutMe name="about" />
+        <Break />
+        <Projects name="projects" />
       </div>
 
     )
