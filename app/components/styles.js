@@ -20,7 +20,7 @@ const sectionStyle = {
       },
    logoGroup = {display:'flex', flexWrap:'wrap', justifyContent:'center'},
    cardGroup = { display:'flex', flexWrap:'wrap',justifyContent:'space-around',paddingTop:'30px'},
-   cardStyle = {flex:'1 0 30%', minWidth:'300px',maxWidth:'500px',margin:'0 8px 40px'}
+   cardStyle = {flex:'1 0 30%', minWidth:'300px',maxWidth:'500px',margin:'0 8px 15px'}
   
 
  const styles = { sectionStyle, sectionHeading, paragraph, logoGroup, cardGroup, cardStyle };
