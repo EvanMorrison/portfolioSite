@@ -1,24 +1,41 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router';
+import ReactDOM from 'react-dom';
+
+// Material UI
 import AppBar from 'material-ui/AppBar';
 import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import MenuItem from 'material-ui/MenuItem';
-import spacing from 'material-ui/styles/spacing';
+import FontIcon from 'material-ui/FontIcon';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import spacing from 'material-ui/styles/spacing';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
+
+// third party
+import scrollToComponent from 'react-scroll-to-component';
+
+// Customized Components
+import Home from '../components/Home';
+import Contact from '../components/Contact';
+import AboutMe from '../components/AboutMe';
+import Break from '../components/Break';
+import Projects from '../components/Projects';
+
 import '../main.css';
+
 
 class MainContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
       displayPage: false,
+      scrollToTarget: "Top",
+      menuClick: false,
       navDrawerOpen: false,
-      appBarOpacity: 0,
+      appBarOpacity: 1,
       appBarPosition: 0
     }
   }
@@ -30,34 +47,38 @@ class MainContainer extends Component {
   componentDidMount() {
     this.setState({
       displayPage: 'block'
-    })
+    });
     this.lastScroll = 0;
-      window.addEventListener('scroll', () => this.handleScrolling())
-    this.scrollTimer = setInterval( () => {
-      if (this.didScroll) {
-        this.handleScrolling();
-        this.didScroll = false;
-      }
-    }, 5);
+      window.addEventListener('scroll', () => {
+        if (!this.state.menuClick)
+          this.handleScrolling()
+      })
   }
   handleScrolling() {
+    // clearTimeout(this.appBarFade);
     let st = window.scrollY - this.lastScroll;
-    if (st > 10 ) {
-        this.setState({
-          appBarOpacity: 0,
-          appBarPosition: -64
-        })
-    } else if (st < -10 ) {
+    if (Math.abs(st) > 10 ) {
         this.setState({
           appBarOpacity: 1,
           appBarPosition: 0
-        })
+        });
     }
-        
      this.lastScroll = this.lastScroll + st; 
-
   }
 
+  handleMenuTap(ev) {
+    this.setState({
+      menuClick: true
+    })
+    let ref = ReactDOM.findDOMNode(this.refs[ev.target.innerHTML])
+    scrollToComponent(ref, {
+      align: 'top',
+      duration: 1000
+    })
+    this.setState({
+      menuClick: false
+    })
+  }
   getStyles() {
     return {
       appBar: {
@@ -66,7 +87,7 @@ class MainContainer extends Component {
         backgroundImage: 'url(./assets/fbg03.jpg)',
         backgroundSize: 'cover',
         marginBottom: '80px',
-        background: 'rgba(0,0,0,.2)',
+        background: 'transparent',
         opacity: this.state.appBarOpacity,
         transition: '.3s ease'
       },
@@ -74,39 +95,34 @@ class MainContainer extends Component {
         margin: spacing.desktopGutter,
       }
     }
-  }
-  handleTouchTapLeftIconButton = () => {
-    this.setState({
-      navDrawerOpen: !this.state.navDrawerOpen
-    })
-  }
-  handleChangeRequestNavDrawer = (open) => {
-    this.setState({
-      navDrawerOpen: false
-    })
-  }
+  }  
   
   render () {
     const styles = this.getStyles();
   return (
       <MuiThemeProvider>
         <div style={{display:this.state.displayPage}}>
-          <AppBar 
+          <AppBar
+            zDepth={0} 
             iconElementLeft={
-              <IconMenu
-                iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
+              <IconMenu 
+                iconButtonElement={<IconButton><MoreVertIcon color={'rgba(0,0,0,.3)'}/></IconButton>}
                 anchorOrigin={{horizontal: 'left', vertical:'top'}}
                 targetOrigin={{horizontal: 'left', vertical: 'top'}}
               >
-                <MenuItem primaryText="Top" />
-                <MenuItem primaryText="Contact" />
-                <MenuItem primaryText="About" />
-                <MenuItem primaryText="Projects" href="#Projects" />
-
+                <MenuItem primaryText="Top" onTouchTap={this.handleMenuTap.bind(this)} />
+                <MenuItem primaryText="Contact" onTouchTap={this.handleMenuTap.bind(this)} />
+                <MenuItem primaryText="About" onTouchTap={this.handleMenuTap.bind(this)} />
+                <MenuItem primaryText="Projects" onTouchTap={this.handleMenuTap.bind(this)} />
               </IconMenu>}
-            title="Welcome" 
-            style={styles.appBar}/>
-          {this.props.children}
+            title="" 
+            style={styles.appBar}
+          />
+          <Home ref="Top" />
+          <Contact ref="Contact" />
+          <AboutMe ref="About" />
+          <Break />
+          <Projects ref="Projects" />
         </div>
       </MuiThemeProvider>
     )

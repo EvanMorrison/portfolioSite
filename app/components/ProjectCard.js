@@ -11,13 +11,13 @@ class ProjectCard extends Component {
       zDepth: 0
     }
   }
-  // getLogos(frameworks) {
-  //   return (
-  //     frameworks.map(framework => {
-  //       return <img key={framework} style={{margin:'0 8px', height:'24px'}} src={logoUrls[framework]} alt="framework"/>
-  //     })
-  //   )
-  // }
+  getLogos(frameworks) {
+    return (
+      frameworks.map(framework => {
+        return <img key={framework} style={{margin:'0 8px', height:'24px'}} src={logoUrls[framework]} alt="framework"/>
+      })
+    )
+  }
 
   // increase shadow depth on mouse enter
   handleMouseEnter = () => {
