@@ -30,7 +30,6 @@ class MainContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      displayPage: false,
       scrollToTarget: "Top",
       menuClick: false,
       navDrawerOpen: false,
@@ -44,9 +43,6 @@ class MainContainer extends Component {
     });
   }
   componentDidMount() {
-    this.setState({
-      displayPage: 'block'
-    });
     this.lastScroll = 0;
       window.addEventListener('scroll', () => {
         if (!this.state.menuClick)
@@ -100,7 +96,7 @@ class MainContainer extends Component {
     const styles = this.getStyles();
   return (
       <MuiThemeProvider>
-        <div style={{display:this.state.displayPage}}>
+        <div>
           <AppBar
             zDepth={0} 
             iconElementLeft={
