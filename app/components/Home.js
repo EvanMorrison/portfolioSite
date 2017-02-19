@@ -19,8 +19,32 @@ class Home extends Component {
         top: 0,
         height: '100%',
         width: '100%'
+      },
+      titleGroup: {
+        position: 'absolute',
+        top: '20vh',
+        width: '100%'
+      },
+      mainTitle: {
+        textShadow: "0 0 10 black",
+        fontSize: "50px",
+        fontFamily: "Roboto",
+        fontWeight: "100",
+        width: "100%",
+        textAlign: "center",
+        marginTop: "20px",
+        textShadow: "1px 1px 3px #555",
+        color: "#0a0a0a",
+        /*font-family: ""'Helvetica Neue'*/
+      },
+      subTitle: {
+        fontWeight: "100",
+        width: "100%",
+        textAlign: "center",
+        marginTop: "20px",
+        textShadow: "1px 1px 3px #555",
+        color: "#0a0a0a",
       }
-      
     }
   }
 
@@ -30,9 +54,9 @@ class Home extends Component {
     <div>
     <div style={styles.root}>
       <div style={styles.shadow}>
-      <div className="title-group">
-        <h1 className="main-title">Evan Morrison</h1>
-        <h2 className="sub-title">Web Developer</h2>
+      <div style={styles.titleGroup}>
+        <h1 style={styles.mainTitle}>Evan Morrison</h1>
+        <h2 style={styles.subTitle}>Web Developer</h2>
       </div>
         </div>
         </div>
