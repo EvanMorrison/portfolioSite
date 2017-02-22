@@ -35,7 +35,7 @@ class ProjectCard extends Component {
   render() {
     const project = this.props.project;
     return (
-          <a href={project.siteUrl} style={cardStyle}>
+          <a href={project.siteUrl} style={cardStyle} target="_blank">
             <Card 
                   onMouseEnter={this.handleMouseEnter}
                   onMouseLeave={this.handleMouseLeave}
