@@ -15,13 +15,13 @@ const projectList = [{
         frameworks: ['AngularJS', 'Nodejs', 'Express', 'MongoDB']
       },{
         name: "Mad-Lib",
-        siteUrl: "http://madlibapp.heroku.com",
+        siteUrl: "http://madlibapp.herokuapp.com",
         imgUrl: projectUrls['Mad-Lib'],
         gitUrl: "https://github.com/EvanMorrison/angularjs-madLib",
         frameworks: ['AngularJS', 'Bootstrap']
       },{
         name: "Shopping List",
-        siteUrl: "http://mothers-shoppinglist.heroku.com",
+        siteUrl: "http://mothers-shoppinglist.herokuapp.com",
         imgUrl: projectUrls['Shopping List'],
         gitUrl: "https://github.com/EvanMorrison/Mothers-Shopping-List",
         frameworks: ['jQuery', 'Bootstrap']
