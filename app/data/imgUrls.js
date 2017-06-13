@@ -16,7 +16,9 @@ const logoUrls = {
       "Babel": "http://imgur.com/MwZWQIO.png",
       "Git": "http://imgur.com/EdlOxpD.png",
       "Angular UI": "http://imgur.com/ZHyYZ26.png",
-      "Heroku": "http://imgur.com/bvDBBqL.png"
+      "Heroku": "http://imgur.com/bvDBBqL.png",
+      "UIRouter": "http://imgur.com/fCW6sSd.png",
+      "Bower": "http://imgur.com/88P7YvL.png"
   }
 
 const projectUrls = {
@@ -28,7 +30,8 @@ const projectUrls = {
     "Pokemon Profiles": "http://imgur.com/pl8tafY.png",
     "CarView Project": "http://imgur.com/a22MuQc.png",
     "ToDo in Angular": "http://imgur.com/tiGIEPF.png",
-    "Everything is Dragable": "http://imgur.com/UsnHV1m.png"
+    "Everything is Dragable": "http://imgur.com/UsnHV1m.png",
+    "Therapy Business": "http://i.imgur.com/51cnFaD.jpg"
   }
 
 export {logoUrls, projectUrls};

@@ -15,7 +15,7 @@ class Home extends Component {
       shadow: {
         position: 'absolute',
         display: 'block',
-        background: 'rgba(255,255,255,.6)',
+        background: 'rgba(255,255,255,.5)',
         top: 0,
         height: '100%',
         width: '100%'
@@ -31,7 +31,7 @@ class Home extends Component {
     <div style={styles.root}>
       <div style={styles.shadow}>
       <div className="title-group">
-        <h1 className="main-title">Evan Morrison</h1>
+        <h1 className="main-title" style={{fontWeight:'500'}}>Evan Morrison</h1>
         <h2 className="sub-title">Web Developer</h2>
       </div>
         </div>
