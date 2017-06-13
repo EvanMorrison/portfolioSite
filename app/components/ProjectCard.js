@@ -14,7 +14,7 @@ class ProjectCard extends Component {
   getLogos(frameworks) {
     return (
       frameworks.map(framework => {
-        return <img key={framework} style={{margin:'0 8px', height:'24px'}} src={logoUrls[framework]} alt="framework"/>
+        return <img key={framework} style={{margin:'0 4px',padding:'2px', height:'24px',background:'#fff',border:'1px transparent',borderRadius:'5px'}} src={logoUrls[framework]} alt="framework"/>
       })
     )
   }
@@ -43,6 +43,9 @@ class ProjectCard extends Component {
               <CardMedia
                   overlay={
                       <CardTitle title={project.name} >
+                        <span style={{color:'white'}}>
+                          {this.getLogos(project.frameworks)}
+                        </span>
                         <IconButton 
                             href={project.gitUrl}
                             target='_blank'

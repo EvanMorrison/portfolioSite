@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import AppBar from 'material-ui/AppBar';
 import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import MenuIcon from 'material-ui/svg-icons/navigation/menu';
 import MenuItem from 'material-ui/MenuItem';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import spacing from 'material-ui/styles/spacing';
@@ -101,7 +101,7 @@ class MainContainer extends Component {
             zDepth={0} 
             iconElementLeft={
               <IconMenu 
-                iconButtonElement={<IconButton><MoreVertIcon color={'rgba(0,0,0,.3)'}/></IconButton>}
+                iconButtonElement={<IconButton><MenuIcon color={'rgba(0,0,0,.9)'}/></IconButton>}
                 anchorOrigin={{horizontal: 'left', vertical:'top'}}
                 targetOrigin={{horizontal: 'left', vertical: 'top'}}
               >

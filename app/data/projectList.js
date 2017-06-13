@@ -12,7 +12,13 @@ const projectList = [{
         siteUrl: "http://bookreviewspa.herokuapp.com",
         imgUrl: projectUrls['Book Lovers'],
         gitUrl: "https://github.com/EvanMorrison/BookReviewSite",
-        frameworks: ['AngularJS', 'Nodejs', 'Express', 'MongoDB']
+        frameworks: ['AngularJS', 'Nodejs', 'MongoDB']
+      },{
+        name: "Business Client Website",
+        siteUrl: "http://mt4w-dev.herokuapp.com",
+        imgUrl: projectUrls['Therapy Business'],
+        gitUrl: "https://github.com/EvanMorrison/mt4w-romano",
+        frameworks: ['AngularJS', 'UIRouter', 'Bower']
       },{
         name: "Mad-Lib",
         siteUrl: "http://madlibapp.herokuapp.com",
