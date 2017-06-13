@@ -20,26 +20,6 @@ a {
 a:hover {
   text-decoration: underline;
 }
-.title-group {
-  position: absolute;
-  top: 20vh;
-  width: 100%;
-}
-.main-title {
-  text-shadow: 0 0 10 black;
-  font-size: 50px;
-  font-family: Roboto;
-  /*font-family: 'Helvetica Neue';*/
-}
-
-.main-title, .sub-title {
-  font-weight: 100;
-  width: 100%;
-  text-align: center;
-  margin-top: 20px;
-  text-shadow: 1px 1px 3px #555;
-  color: #0a0a0a;
-}
 
 .footer {
   width: 100%;
