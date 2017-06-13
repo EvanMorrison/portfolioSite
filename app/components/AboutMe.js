@@ -16,7 +16,7 @@ class AboutMe extends Component {
           <div style={{maxWidth:'700px'}}>
             <h1 style={sectionHeading} >ABOUT ME</h1>
             <p style={paragraph}>I am a web developer with knowledge of front and back-end technologies. More than ten years ago my interest in coding led me to teach myself enough to code my first 'app' to automate case handling in my real estate law practice. Ever since then I&rsquo;ve known coding was what I really wanted to do.</p>
-            <p style={paragraph}>I recently completed over 600 hours of intensive training in Full Stack Web Development at the outstanding <a href="http://vschool.io">V School</a> web dev bootcamp.</p>
+            <p style={paragraph}>I completed over 600 hours of intensive training in Full Stack Web Development at the excellent <a href="http://vschool.io">V School</a> web dev bootcamp. I'm currently working on various professional projects for clients, and continue to expand my skills with hudreds more hours of training and work on open source projects. </p>
             <p style={paragraph}>I am knowledgable in many of the most widely used languages, libraries, and frameworks of modern web development, from JavaScript, HTML5, and CSS3, to JQuery, AngularJS, React, Webpack, NodeJS, Express, and MongoDB.</p>
             <div style={logoGroup}>
               {this.getLogos()}
