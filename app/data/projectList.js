@@ -9,31 +9,31 @@ const projectList = [{
         frameworks: ['ReactJS','Nodejs','npm','ES6','Babel','Webpack']
       },{
         name: "Book Reviews",
-        siteUrl: "http://bookreviewspa.herokuapp.com",
+        siteUrl: "http://bookreviewspa.evmorrison.com",
         imgUrl: projectUrls['Book Lovers'],
         gitUrl: "https://github.com/EvanMorrison/BookReviewSite",
         frameworks: ['AngularJS', 'Nodejs', 'MongoDB']
       },{
         name: "Business Client Website",
-        siteUrl: "http://mt4w-dev.herokuapp.com",
+        siteUrl: "http://mt4w-dev.evmorrison.com",
         imgUrl: projectUrls['Therapy Business'],
         gitUrl: "https://github.com/EvanMorrison/mt4w-romano",
-        frameworks: ['AngularJS', 'UIRouter', 'Bower']
+        frameworks: ['AngularJS', 'UIRouter', 'npm']
       },{
         name: "Mad-Lib",
-        siteUrl: "http://madlibapp.herokuapp.com",
+        siteUrl: "http://madlib.evmorrison.com",
         imgUrl: projectUrls['Mad-Lib'],
         gitUrl: "https://github.com/EvanMorrison/angularjs-madLib",
         frameworks: ['AngularJS', 'Bootstrap']
       },{
         name: "Shopping List",
-        siteUrl: "http://mothers-shoppinglist.herokuapp.com",
+        siteUrl: "http://shoppinglist.evmorrison.com",
         imgUrl: projectUrls['Shopping List'],
         gitUrl: "https://github.com/EvanMorrison/Mothers-Shopping-List",
         frameworks: ['jQuery', 'Bootstrap']
       },{
         name: "Mario Pest Control",
-        siteUrl: "https://mario-pest-control.herokuapp.com/",
+        siteUrl: "https://mario-pest-control.evmorrison.com/",
         imgUrl: projectUrls['Mario Pest Control'],
         gitUrl: "https://github.com/EvanMorrison/Mario-Pest-Control",
         frameworks: ['HTML5', 'CSS3', 'jQuery']
