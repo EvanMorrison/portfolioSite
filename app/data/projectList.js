@@ -33,7 +33,7 @@ const projectList = [{
         frameworks: ['jQuery', 'Bootstrap']
       },{
         name: "Mario Pest Control",
-        siteUrl: "https://mario-pest-control.evmorrison.com/",
+        siteUrl: "http://mario-pest-control.evmorrison.com/",
         imgUrl: projectUrls['Mario Pest Control'],
         gitUrl: "https://github.com/EvanMorrison/Mario-Pest-Control",
         frameworks: ['HTML5', 'CSS3', 'jQuery']
