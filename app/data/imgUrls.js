@@ -3,6 +3,7 @@ const logoUrls = {
       "CSS3": "http://imgur.com/iAntQVY.png",
       "JavaScript": "http://imgur.com/DXxVmhE.png",
       "AngularJS": "http://imgur.com/EU3l2hl.png",
+      "AngularMaterial": "http://imgur.com/cClqG2u.png",
       "ReactJS": "http://imgur.com/ADGqIBF.png",
       "jQuery": "http://imgur.com/9LmnzqX.png",
       "Bootstrap": "http://imgur.com/lMaDPX1.png",
@@ -31,7 +32,8 @@ const projectUrls = {
     "CarView Project": "http://imgur.com/a22MuQc.png",
     "ToDo in Angular": "http://imgur.com/tiGIEPF.png",
     "Everything is Dragable": "http://imgur.com/UsnHV1m.png",
-    "Therapy Business": "http://i.imgur.com/51cnFaD.jpg"
+    "Therapy Business": "http://i.imgur.com/51cnFaD.jpg",
+    "Real-T": "http://i.imgur.com/SyF50Lg.png"
   }
 
 export {logoUrls, projectUrls};
