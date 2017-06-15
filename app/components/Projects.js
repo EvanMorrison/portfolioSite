@@ -23,7 +23,9 @@ class Projects extends Component {
         <h1 style={sectionHeading}>
           SAMPLE PROJECTS
         </h1>
-        <h2 style={{fontWeight:'100',fontSize:'16px'}}>(Clicking a site launches in new tab. Github icon will open the repo)</h2>
+        <h2 style={{fontWeight:'100',fontSize:'16px'}}>Click a website image to visit the deployed site (opens a new tab).</h2>
+        <h2 style={{fontWeight:'100',fontSize:'16px'}}> Please allow 5-10 seconds for the server to spin up.</h2>
+        <h2 style={{fontWeight:'100',fontSize:'16px'}}> Github icons are linked to the corresponding repo. </h2> 
         <div style={cardGroup}>
           {this.CreateCards()}
         </div>
