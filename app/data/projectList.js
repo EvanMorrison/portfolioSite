@@ -10,7 +10,7 @@ const projectList = [
         frameworks: ['AngularJS', 'Nodejs', 'MongoDB']
       },{
         name: "Real-T",
-        siteUrl: "https://real-t/evmorrison.com",
+        siteUrl: "http://real-t.evmorrison.com",
         imgUrl: projectUrls['Real-T'],
         gitUrl: "https://github.com/EvanMorrison/real-t",
         frameworks: ['AngularJS', 'AngularMaterial', 'UIRouter']

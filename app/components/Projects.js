@@ -23,7 +23,7 @@ class Projects extends Component {
         <h1 style={sectionHeading}>
           SAMPLE PROJECTS
         </h1>
-        <h2 style={{fontWeight:'100',fontSize:'16px'}}>(Clicking a site launches in new tab - please allow 5-10 seconds for the server to spin up. Github icon will open the repo)</h2>
+        <h2 style={{fontWeight:'100',fontSize:'16px'}}>(Clicking a site image opens the live site in a new tab - some sites take up to 5-10 seconds for the server to spin up. The Github icons will open the repo)</h2>
         <div style={cardGroup}>
           {this.CreateCards()}
         </div>
