@@ -15,11 +15,17 @@ const projectList = [
         gitUrl: "https://github.com/EvanMorrison/real-t",
         frameworks: ['AngularJS', 'AngularMaterial', 'UIRouter']
       },{
-        name: "Business Client Website",
-        siteUrl: "http://mt4w-dev.evmorrison.com",
+        name: "Therapy Business Client",
+        siteUrl: "https://manualtherapy4wellness.com",
         imgUrl: projectUrls['Therapy Business'],
         gitUrl: "https://github.com/EvanMorrison/mt4w-romano",
-        frameworks: ['AngularJS', 'UIRouter', 'npm']
+        frameworks: ['AngularJS', 'UIRouter', 'npm', 'Webpack']
+      },{
+        name: "CPA Business Client",
+        siteUrl: "https://moshero-cpa.firebaseapp.com",
+        imgUrl: projectUrls['Moshero CPA Business'],
+        gitUrl: "https://github.com/EvanMorrison/moshero-cpa",
+        frameworks: ['AngularJS', 'UIRouter', 'npm', 'Webpack']
       },{
         name: "This Website",
         siteUrl: "http://www.evmorrison.com",
