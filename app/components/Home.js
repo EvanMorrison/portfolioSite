@@ -21,21 +21,23 @@ class Home extends Component {
         width: '100%'
       },
       titleGroup: {
-        position: 'absolute',
+        position: 'relative',
         top: '20vh',
-        width: '100%'
+        width: '90%',
+        maxWidth: '500px',
+        padding:'10px 20px',
+        border: '2px solid rgba(127, 125, 105,0.8)',
+        backgroundColor: 'rgba(230, 230, 230, 0.8)',
+        margin:'0 auto'
       },
       mainTitle: {
-        textShadow: "0 0 10 black",
-        fontSize: "50px",
+        fontSize: "3em",
         fontFamily: "Roboto",
         fontWeight: "100",
-        width: "100%",
         textAlign: "center",
-        marginTop: "20px",
-        textShadow: "1px 1px 3px #555",
+        
+        textShadow: "1px 1px 1px #555",
         color: "#0a0a0a",
-        /*font-family: ""'Helvetica Neue'*/
       },
       subTitle: {
         fontWeight: "100",
