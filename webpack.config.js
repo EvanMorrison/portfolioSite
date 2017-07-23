@@ -1,6 +1,9 @@
 const webpack = require('webpack');
 const CompressionPlugin = require('compression-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+
 
 module.exports = (env = {}) => {
     const isProduction = env.production === true;
@@ -31,8 +34,24 @@ module.exports = (env = {}) => {
         module: {
             rules: [
                 {test:/\.js$/, exclude: /node_modules/, use: "babel-loader"},
-                {test:/\.(jpg|png)$/, use:"url-loader"},
-                {test:/\.css$/, use: ["style-loader", "css-loader"]}
+                {test:/\.(jpe?g|png|gif)$/, use: [
+                                                { 
+                                                    loader: "url-loader",
+                                                    options: {
+                                                        limit: 10000,
+                                                        name: 'assets/[name].[hash].[ext]'
+                                                    }
+                                                }
+                                            ]
+                },
+                {test:/\.css$/, use: (() => {  
+                      if (isProduction) return ExtractTextPlugin.extract({
+                                          fallback: 'style-loader',
+                                          use: 'css-loader?sourceMap'
+                                      })
+                      else return ['style-loader', 'css-loader']
+                  })()
+                }
             ]
         },
 
@@ -49,6 +68,10 @@ module.exports = (env = {}) => {
             if (isProduction) {
                 pluginList.push(
                     // plugins for production only
+                    new CleanWebpackPlugin(['dist']),
+                    new ExtractTextPlugin({
+                        filename: '[name].[contenthash].css'
+                    }),
                     new CompressionPlugin({  
                         asset: "[path].gz[query]",
                         algorithm: "gzip",
