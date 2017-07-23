@@ -1,28 +1,30 @@
 import React, { Component } from 'react';
+import hero from '../images/heros/people-coffee-notes-tea-1080x720.jpg'
 
 class Home extends Component {
   getStyles() {
     return {
       root: {
         position: 'relative',
-        height: '60vh',
-        minHeight: '500px',
-        backgroundImage: 'url(http://i.imgur.com/zoU5shZ.jpg)',
+        height: '100vh',
+        backgroundImage: `url(${hero})`,
+        backgroundAttachment: 'fixed',
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundPosition: 'bottom left',
+        backgroundRepeat: 'no-repeat',
         overflow: 'hidden',
       },
       shadow: {
         position: 'absolute',
         display: 'block',
-        background: 'rgba(255,255,255,.5)',
+        background: 'rgba(255,255,255,0)',
         top: 0,
         height: '100%',
         width: '100%'
       },
       titleGroup: {
         position: 'relative',
-        top: '20vh',
+        top: '33vh',
         width: '90%',
         maxWidth: '500px',
         padding:'10px 20px',

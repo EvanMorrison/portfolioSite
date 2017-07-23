@@ -7,25 +7,25 @@ const projectList = [
         siteUrl: "http://bookreviewspa.evmorrison.com",
         imgUrl: projectUrls['Book Lovers'],
         gitUrl: "https://github.com/EvanMorrison/BookReviewSite",
-        frameworks: ['AngularJS', 'Nodejs', 'MongoDB']
+        frameworks: ['AngularJS', 'Bootstrap', 'Nodejs', 'MongoDB']
       },{
         name: "Real-T",
         siteUrl: "http://real-t.evmorrison.com",
         imgUrl: projectUrls['Real-T'],
         gitUrl: "https://github.com/EvanMorrison/real-t",
-        frameworks: ['AngularJS', 'AngularMaterial', 'UIRouter']
+        frameworks: ['AngularJS', 'AngularMaterial', 'UIRouter', 'Webpack']
       },{
         name: "Therapy Business Client",
-        siteUrl: "https://manualtherapy4wellness.com",
+        siteUrl: "http://manualtherapy4wellness.com",
         imgUrl: projectUrls['Therapy Business'],
         gitUrl: "https://github.com/EvanMorrison/mt4w-romano",
-        frameworks: ['AngularJS', 'UIRouter', 'npm', 'Webpack']
+        frameworks: ['AngularJS', 'AngularMaterial', 'UIRouter', 'npm', 'Webpack']
       },{
         name: "CPA Business Client",
-        siteUrl: "https://moshero-cpa.firebaseapp.com",
+        siteUrl: "http://moshero-cpa.firebaseapp.com",
         imgUrl: projectUrls['Moshero CPA Business'],
         gitUrl: "https://github.com/EvanMorrison/moshero-cpa",
-        frameworks: ['AngularJS', 'UIRouter', 'npm', 'Webpack']
+        frameworks: ['AngularJS', 'AngularMaterial', 'UIRouter', 'npm', 'Webpack']
       },{
         name: "This Website",
         siteUrl: "http://www.evmorrison.com",
