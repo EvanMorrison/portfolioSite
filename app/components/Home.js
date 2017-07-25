@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import hero from '../images/heros/people-coffee-notes-tea-1080x720.jpg'
+import hero from '../images/heros/people-coffee-notes-tea-1920x1280.jpg'
 
 class Home extends Component {
   getStyles() {

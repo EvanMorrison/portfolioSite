@@ -16,7 +16,7 @@ const projectList = [
         frameworks: ['AngularJS', 'AngularMaterial', 'UIRouter', 'Webpack']
       },{
         name: "Therapy Business Client",
-        siteUrl: "http://manualtherapy4wellness.com",
+        siteUrl: "https://manualtherapy4wellness.com",
         imgUrl: projectUrls['Therapy Business'],
         gitUrl: "https://github.com/EvanMorrison/mt4w-romano",
         frameworks: ['AngularJS', 'AngularMaterial', 'UIRouter', 'npm', 'Webpack']
@@ -34,28 +34,34 @@ const projectList = [
         frameworks: ['ReactJS','Nodejs','npm','ES6','Babel','Webpack']
       },{
         name: "Mad-Lib",
-        siteUrl: "http://madlib.evmorrison.com",
+        siteUrl: "http://evmorrison.com/sampleprojects/angularMadlib",
         imgUrl: projectUrls['Mad-Lib'],
         gitUrl: "https://github.com/EvanMorrison/angularjs-madLib",
         frameworks: ['AngularJS', 'Bootstrap']
       },{
         name: "Mario's Earnings (CSS Animation)",
-        siteUrl: "http://mario-pest-control.evmorrison.com/",
+        siteUrl: "http://evmorrison.com/sampleprojects/mario",
         imgUrl: projectUrls['Mario Pest Control'],
         gitUrl: "https://github.com/EvanMorrison/Mario-Pest-Control",
         frameworks: ['HTML5', 'CSS3', 'jQuery']
       },{
         name: "Shopping List",
-        siteUrl: "http://shoppinglist.evmorrison.com",
+        siteUrl: "http://evmorrison.com/sampleprojects/shoppinglist",
         imgUrl: projectUrls['Shopping List'],
         gitUrl: "https://github.com/EvanMorrison/Mothers-Shopping-List",
         frameworks: ['jQuery', 'Bootstrap']
       },{
-        name: "Pokemon Profiles",
-        siteUrl: "#",
+        name: "Pokemon Profiles (type ahead, amuses kids)",
+        siteUrl: "http://evmorrison.com/sampleprojects/pokeprofiles",
         imgUrl: projectUrls['Pokemon Profiles'],
         gitUrl: "https://github.com/EvanMorrison/pokeProfile",
-        frameworks: ['AngularJS', 'Angular UI', 'Bootstrap', 'express','Nodejs']
+        frameworks: ['AngularJS', 'AngularUI', 'Bootstrap']
+      },{
+        name: "Pong JS (HTML5 canvas, frivolous game)",
+        siteUrl: "http://evmorrison.com/sampleprojects/pongjs",
+        imgUrl: projectUrls['PongJS'],
+        gitUrl: "#",
+        frameworks: ['HTML5', 'CSS3', 'JavaScript']
       },{
         name: "CarView Project",
         siteUrl: "#",

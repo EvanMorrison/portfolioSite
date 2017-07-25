@@ -1,10 +1,12 @@
 
 const sectionStyle = {
+        minHeight: '100vh',
         padding: '40px 40px 50px',
         position: 'relative',
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center'
+        alignItems: 'center',
+        justifyContent: 'center'
       },
    sectionHeading = {
         textAlign: 'center',

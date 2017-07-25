@@ -34,7 +34,9 @@ const projectUrls = {
     "Everything is Dragable": require('../images/projects/everythingIsDragable-500x300.jpg'),
     "Therapy Business": require('../images/projects/mt4wRomano-500x300.jpg'),
     "Moshero CPA Business": require('../images/projects/mosheroCpa-500x300.jpg'),
-    "Real-T": require('../images/projects/real-t-500x300.jpg')
+    "Real-T": require('../images/projects/real-t-500x300.jpg'),
+    "PongJS": require('../images/projects/pngjs-500x300.jpg')
+
   }
 
 export {logoUrls, projectUrls};

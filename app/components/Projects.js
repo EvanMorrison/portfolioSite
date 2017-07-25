@@ -25,8 +25,8 @@ class Projects extends Component {
           <h1 style={sectionHeading}>
             SAMPLE PROJECTS
           </h1>
-          <h2 style={{fontWeight:'100',fontSize:'16px'}}>Click a website image to visit the live site.</h2>
-          <h2 style={{fontWeight:'100',fontSize:'16px'}}>Github icons are linked to the corresponding repo. </h2> 
+          <h2 style={{fontWeight:'100',fontSize:'16px',textAlign:'center'}}>Click a website image to visit the live site.</h2>
+          <h2 style={{fontWeight:'100',fontSize:'16px',textAlign:'center'}}>Github icons are linked to the corresponding repo. </h2> 
         </div>
         <div style={cardGroup}>
           {this.CreateCards()}

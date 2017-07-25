@@ -52,7 +52,7 @@ class MainContainer extends Component {
   handleScrolling(windowHeight) {
     // clearTimeout(this.appBarFade);
     // let st = window.scrollY - this.lastScroll;
-    if ( (window.scrollY / windowHeight) % 2 >= 1 ) {
+    if ( (window.scrollY / windowHeight) % 2 >= 1  || window.scrollY > (3 * windowHeight) ) {
         this.setState({
           // appBarOpacity: 0,
           // appBarPosition: 0,

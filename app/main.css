@@ -25,7 +25,7 @@ body {
   width: 100%;
   /*  background picture for projects section  */
   background: linear-gradient(rgba(224, 134, 17,0),rgba(224, 134, 17,0)), 
-              url('./images/heros/rock-ocean-sky-1080x720.jpeg');
+              url('./images/heros/rock-ocean-sky-1920x1280.jpeg');
   background-size: cover, cover;
   background-repeat: no-repeat, no-repeat;
   background-position: bottom left, bottom center;
