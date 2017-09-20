@@ -3,19 +3,19 @@ import { projectUrls } from '../data/imgUrls';
 
 const projectList = [
       {
+        name: "Real-T",
+        siteUrl: "http://real-t.evmorrison.com",
+        imgUrl: projectUrls['Real-T'],
+        gitUrl: "https://github.com/EvanMorrison/real-t",
+        frameworks: ['AngularJS', 'AngularMaterial', 'UIRouter', 'Webpack', 'Sass', 'Nodejs', 'MongoDB']
+      },{
         name: "Book Reviews",
         siteUrl: "http://bookreviewspa.evmorrison.com",
         imgUrl: projectUrls['Book Lovers'],
         gitUrl: "https://github.com/EvanMorrison/BookReviewSite",
         frameworks: ['AngularJS', 'Bootstrap', 'Nodejs', 'MongoDB']
       },{
-        name: "Real-T",
-        siteUrl: "http://real-t.evmorrison.com",
-        imgUrl: projectUrls['Real-T'],
-        gitUrl: "https://github.com/EvanMorrison/real-t",
-        frameworks: ['AngularJS', 'AngularMaterial', 'UIRouter', 'Webpack']
-      },{
-        name: "Therapy Business Client",
+        name: "Therapy Business",
         siteUrl: "https://manualtherapy4wellness.com",
         imgUrl: projectUrls['Therapy Business'],
         gitUrl: "https://github.com/EvanMorrison/mt4w-romano",
@@ -51,13 +51,13 @@ const projectList = [
         gitUrl: "https://github.com/EvanMorrison/Mothers-Shopping-List",
         frameworks: ['jQuery', 'Bootstrap']
       },{
-        name: "Pokemon Profiles (type ahead, amuses kids)",
+        name: "Pokemon Profiles (type ahead, with sprites)",
         siteUrl: "http://evmorrison.com/sampleprojects/pokeprofiles",
         imgUrl: projectUrls['Pokemon Profiles'],
         gitUrl: "https://github.com/EvanMorrison/pokeProfile",
         frameworks: ['AngularJS', 'AngularUI', 'Bootstrap']
       },{
-        name: "Pong JS (HTML5 canvas, frivolous game)",
+        name: "Pong JS (HTML5 canvas)",
         siteUrl: "http://evmorrison.com/sampleprojects/pongjs",
         imgUrl: projectUrls['PongJS'],
         gitUrl: "#",

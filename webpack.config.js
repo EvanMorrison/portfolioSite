@@ -1,8 +1,9 @@
+const path = require('path');
 const webpack = require('webpack');
-const CompressionPlugin = require('compression-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin')
 
 
 module.exports = (env = {}) => {
@@ -10,11 +11,28 @@ module.exports = (env = {}) => {
 
     return {
         
-        entry: './app/index.js',
+        entry: (() => {
+            if (isProduction) return {
+                index: './app/index.js',
+                vendor: [
+                        'material-ui',
+                        'react',
+                        'react-dom',
+                        'react-fontawesome',
+                        'react-router',
+                        'react-scroll-to-component',
+                        'react-tap-event-plugin'
+                ]
+            }
+            else return './app/index.js'
+        })() ,
 
         output: {
-            path: __dirname + '/dist',
-            filename: 'index_bundle.js'
+            path: path.resolve(__dirname, 'dist'),
+            filename: (() => {
+                if (isProduction) return '[name].[chunkhash].js'
+                else return '[name].bundle.js'
+            })()
         },
 
         devtool: (() => {
@@ -69,6 +87,13 @@ module.exports = (env = {}) => {
                 pluginList.push(
                     // plugins for production only
                     new CleanWebpackPlugin(['dist']),
+                    new webpack.HashedModuleIdsPlugin(),
+                    new webpack.optimize.CommonsChunkPlugin({
+                        name: 'vendor'
+                    }),
+                    new webpack.optimize.CommonsChunkPlugin({
+                        name: 'runtime'
+                    }),
                     new ExtractTextPlugin({
                         filename: '[name].[contenthash].css'
                     }),
