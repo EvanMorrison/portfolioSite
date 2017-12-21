@@ -111,10 +111,10 @@ class MainContainer extends Component {
                 anchorOrigin={{horizontal: 'left', vertical:'top'}}
                 targetOrigin={{horizontal: 'left', vertical: 'top'}}
               >
-                <MenuItem primaryText="Top" onTouchTap={this.handleMenuTap.bind(this)} />
-                <MenuItem primaryText="Contact" onTouchTap={this.handleMenuTap.bind(this)} />
-                <MenuItem primaryText="About" onTouchTap={this.handleMenuTap.bind(this)} />
-                <MenuItem primaryText="Projects" onTouchTap={this.handleMenuTap.bind(this)} />
+                <MenuItem primaryText="Top" onClick={this.handleMenuTap.bind(this)} />
+                <MenuItem primaryText="Contact" onClick={this.handleMenuTap.bind(this)} />
+                <MenuItem primaryText="About" onClick={this.handleMenuTap.bind(this)} />
+                <MenuItem primaryText="Projects" onClick={this.handleMenuTap.bind(this)} />
               </IconMenu>}
             title="" 
             style={styles.appBar}

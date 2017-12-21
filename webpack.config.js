@@ -24,11 +24,18 @@ module.exports = (env = {}) => {
                         'react-tap-event-plugin'
                 ]
             }
-            else return './app/index.js'
-        })() ,
+            else {
+                return [
+                         'react-hot-loader/patch',
+                         'webpack-hot-middleware/client',
+                         './app/index.js'
+                        ]
+            }
+        })(),
 
         output: {
             path: path.resolve(__dirname, 'dist'),
+            publicPath: '/',
             filename: (() => {
                 if (isProduction) return '[name].[chunkhash].js'
                 else return '[name].bundle.js'
@@ -43,15 +50,16 @@ module.exports = (env = {}) => {
         devServer: (() => { 
             if (isProduction) return {}
             else return {
-                hot: true,
                 contentBase: './dist',
-                historyApiFallback: true
+                historyApiFallback: {
+                    index: '/'
+                }
             }
         })(),
 
         module: {
             rules: [
-                {test:/\.js$/, exclude: /node_modules/, use: "babel-loader"},
+                {test:/\.js$/, exclude: /node_modules/, use: ['babel-loader']},
                 {test:/\.(jpe?g|png|gif)$/, use: [
                                                 { 
                                                     loader: "url-loader",
@@ -61,6 +69,22 @@ module.exports = (env = {}) => {
                                                     }
                                                 }
                                             ]
+                },
+                { test: /\.scss$/, 
+                    use: ExtractTextPlugin.extract({
+                          use: [
+                            {
+                              loader: 'css-loader', 
+                              options: { sourceMap: true }
+                            },
+                            {
+                              loader: 'sass-loader',
+                              options: { sourceMap: true }
+                            }
+                          ],    
+                          // fallback to inlining styles when extracting is disabled in development
+                          fallback: 'style-loader',
+                        })
                 },
                 {test:/\.css$/, use: (() => {  
                       if (isProduction) return ExtractTextPlugin.extract({
@@ -80,6 +104,10 @@ module.exports = (env = {}) => {
                     template: __dirname + '/app/index.html',
                     filename: 'index.html',
                     inject: 'body'
+                }),
+                new ExtractTextPlugin({
+                    filename: '[name].[contenthash].css',
+                    disable: !isProduction // will use fallback in-line loader in development
                 })
             ]
             
@@ -94,9 +122,6 @@ module.exports = (env = {}) => {
                     new webpack.optimize.CommonsChunkPlugin({
                         name: 'runtime'
                     }),
-                    new ExtractTextPlugin({
-                        filename: '[name].[contenthash].css'
-                    }),
                     new CompressionPlugin({  
                         asset: "[path].gz[query]",
                         algorithm: "gzip",
@@ -108,7 +133,8 @@ module.exports = (env = {}) => {
             } else {
                 pluginList.push(
                     // plugins for development only
-                    new webpack.HotModuleReplacementPlugin()
+                    new webpack.HotModuleReplacementPlugin(),
+                    new webpack.NoEmitOnErrorsPlugin()
                 )
             }
             return pluginList
