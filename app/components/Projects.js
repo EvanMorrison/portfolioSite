@@ -19,13 +19,15 @@ class Projects extends Component {
   }
   render() {
     return (
-      <div style={{...sectionStyle, backgroundColor:'transparent', paddingBottom:'200px'}}>
-        <h1 style={sectionHeading}>
-          SAMPLE PROJECTS
-        </h1>
-        <h2 style={{fontWeight:'100',fontSize:'16px'}}>Click a website image to visit the live site (opens a new tab).</h2>
-        <h2 style={{fontWeight:'100',fontSize:'16px'}}>Note, some of the sites take up to 5-10 seconds for the server to spin up.</h2>
-        <h2 style={{fontWeight:'100',fontSize:'16px'}}>The Github icons are linked to their corresponding repo. </h2> 
+      <div style={{...sectionStyle, background:'transparent', paddingBottom:'200px'}} 
+           className="project-section">
+        <div className="project-title-block">
+          <h1 style={sectionHeading}>
+            SAMPLE PROJECTS
+          </h1>
+          <h2 style={{fontWeight:'100',fontSize:'16px'}}>Click a website image to visit the live site.</h2>
+          <h2 style={{fontWeight:'100',fontSize:'16px'}}>Github icons are linked to the corresponding repo. </h2> 
+        </div>
         <div style={cardGroup}>
           {this.CreateCards()}
         </div>

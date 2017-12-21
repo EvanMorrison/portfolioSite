@@ -20,7 +20,6 @@ import scrollToComponent from 'react-scroll-to-component';
 import Home from '../components/Home';
 import Contact from '../components/Contact';
 import AboutMe from '../components/AboutMe';
-import Break from '../components/Break';
 import Projects from '../components/Projects';
 
 import '../main.css';
@@ -32,9 +31,10 @@ class MainContainer extends Component {
     this.state = {
       scrollToTarget: "Top",
       menuClick: false,
-      navDrawerOpen: false,
-      appBarOpacity: 1,
-      appBarPosition: 0
+      // navDrawerOpen: false,
+      appBarOpacity: 0,
+      // appBarPosition: 0,
+      menuButtonColor: '#fff'
     }
   }
   componentWillMount() {
@@ -46,19 +46,25 @@ class MainContainer extends Component {
     this.lastScroll = 0;
       window.addEventListener('scroll', () => {
         if (!this.state.menuClick)
-          this.handleScrolling()
+          this.handleScrolling(window.innerHeight)
       })
   }
-  handleScrolling() {
+  handleScrolling(windowHeight) {
     // clearTimeout(this.appBarFade);
-    let st = window.scrollY - this.lastScroll;
-    if (Math.abs(st) > 10 ) {
+    // let st = window.scrollY - this.lastScroll;
+    if ( (window.scrollY / windowHeight) % 2 >= 1 ) {
         this.setState({
-          appBarOpacity: 1,
-          appBarPosition: 0
+          // appBarOpacity: 0,
+          // appBarPosition: 0,
+          menuButtonColor: '#000'
         });
-    }
-     this.lastScroll = this.lastScroll + st; 
+    } else {
+      this.setState({
+        // appBarOpacity: 0,
+        menuButtonColor: '#fff'
+      })
+    } 
+    //  this.lastScroll = this.lastScroll + st; 
   }
 
   handleMenuTap(ev) {
@@ -82,8 +88,8 @@ class MainContainer extends Component {
         backgroundImage: 'url(./assets/fbg03.jpg)',
         backgroundSize: 'cover',
         marginBottom: '80px',
-        background: 'transparent',
-        opacity: this.state.appBarOpacity,
+        background: `rgba(250,250,250,${this.state.appBarOpacity})`,
+        opacity: 1,
         transition: '.3s ease'
       },
       content: {
@@ -101,7 +107,7 @@ class MainContainer extends Component {
             zDepth={0} 
             iconElementLeft={
               <IconMenu 
-                iconButtonElement={<IconButton><MenuIcon color={'rgba(0,0,0,.9)'}/></IconButton>}
+                iconButtonElement={<IconButton><MenuIcon color={this.state.menuButtonColor}/></IconButton>}
                 anchorOrigin={{horizontal: 'left', vertical:'top'}}
                 targetOrigin={{horizontal: 'left', vertical: 'top'}}
               >
@@ -116,7 +122,6 @@ class MainContainer extends Component {
           <Home ref="Top" />
           <Contact ref="Contact" />
           <AboutMe ref="About" />
-          <Break />
           <Projects ref="Projects" />
         </div>
       </MuiThemeProvider>
