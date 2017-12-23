@@ -107,7 +107,7 @@ module.exports = (env = {}) => {
                 }),
                 new ExtractTextPlugin({
                     filename: '[name].[contenthash].css',
-                    disable: !isProduction // will use fallback in-line loader in development
+                    disable: false //!isProduction // will use fallback in-line loader in development
                 })
             ]
             
