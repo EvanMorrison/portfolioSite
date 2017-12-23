@@ -10,8 +10,6 @@ import MenuItem from 'material-ui/MenuItem';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import spacing from 'material-ui/styles/spacing';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-injectTapEventPlugin();
 
 // third party
 import scrollToComponent from 'react-scroll-to-component';
@@ -22,7 +20,13 @@ import Contact from '../components/Contact';
 import AboutMe from '../components/AboutMe';
 import Projects from '../components/Projects';
 
-import '../main.css';
+import { transparent } from 'material-ui/styles/colors';
+import '../main.scss';
+
+const muiTheme = getMuiTheme({
+  appBar: { color: transparent,
+             }  
+})
 
 
 class MainContainer extends Component {
@@ -31,9 +35,7 @@ class MainContainer extends Component {
     this.state = {
       scrollToTarget: "Top",
       menuClick: false,
-      // navDrawerOpen: false,
       appBarOpacity: 0,
-      // appBarPosition: 0,
       menuButtonColor: '#fff'
     }
   }
@@ -52,15 +54,12 @@ class MainContainer extends Component {
   handleScrolling(windowHeight) {
     // clearTimeout(this.appBarFade);
     // let st = window.scrollY - this.lastScroll;
-    if ( (window.scrollY / windowHeight) % 2 >= 1 ) {
+    if ( (window.scrollY / windowHeight) % 2 >= 1  || window.scrollY > (3 * windowHeight) ) {
         this.setState({
-          // appBarOpacity: 0,
-          // appBarPosition: 0,
           menuButtonColor: '#000'
         });
     } else {
       this.setState({
-        // appBarOpacity: 0,
         menuButtonColor: '#fff'
       })
     } 
@@ -80,28 +79,11 @@ class MainContainer extends Component {
       menuClick: false
     })
   }
-  getStyles() {
-    return {
-      appBar: {
-        position: 'fixed',
-        top: this.state.appBarPosition,
-        backgroundImage: 'url(./assets/fbg03.jpg)',
-        backgroundSize: 'cover',
-        marginBottom: '80px',
-        background: `rgba(250,250,250,${this.state.appBarOpacity})`,
-        opacity: 1,
-        transition: '.3s ease'
-      },
-      content: {
-        margin: spacing.desktopGutter,
-      }
-    }
-  }  
   
+    
   render () {
-    const styles = this.getStyles();
   return (
-      <MuiThemeProvider>
+      <MuiThemeProvider muiTheme={muiTheme}>
         <div>
           <AppBar
             zDepth={0} 
@@ -111,13 +93,13 @@ class MainContainer extends Component {
                 anchorOrigin={{horizontal: 'left', vertical:'top'}}
                 targetOrigin={{horizontal: 'left', vertical: 'top'}}
               >
-                <MenuItem primaryText="Top" onTouchTap={this.handleMenuTap.bind(this)} />
-                <MenuItem primaryText="Contact" onTouchTap={this.handleMenuTap.bind(this)} />
-                <MenuItem primaryText="About" onTouchTap={this.handleMenuTap.bind(this)} />
-                <MenuItem primaryText="Projects" onTouchTap={this.handleMenuTap.bind(this)} />
+                <MenuItem primaryText="Top" onClick={this.handleMenuTap.bind(this)} />
+                <MenuItem primaryText="Contact" onClick={this.handleMenuTap.bind(this)} />
+                <MenuItem primaryText="About" onClick={this.handleMenuTap.bind(this)} />
+                <MenuItem primaryText="Projects" onClick={this.handleMenuTap.bind(this)} />
               </IconMenu>}
             title="" 
-            style={styles.appBar}
+            className="appbar main-menu"
           />
           <Home ref="Top" />
           <Contact ref="Contact" />

@@ -1,8 +1,9 @@
+const path = require('path');
 const webpack = require('webpack');
-const CompressionPlugin = require('compression-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin')
 
 
 module.exports = (env = {}) => {
@@ -10,30 +11,55 @@ module.exports = (env = {}) => {
 
     return {
         
-        entry: './app/index.js',
+        entry: (() => {
+            if (isProduction) return {
+                index: './app/index.js',
+                vendor: [
+                        'material-ui',
+                        'react',
+                        'react-dom',
+                        'react-fontawesome',
+                        'react-router',
+                        'react-scroll-to-component',
+                        'react-tap-event-plugin'
+                ]
+            }
+            else {
+                return [
+                         'react-hot-loader/patch',
+                         'webpack-hot-middleware/client',
+                         './app/index.js'
+                        ]
+            }
+        })(),
 
         output: {
-            path: __dirname + '/dist',
-            filename: 'index_bundle.js'
+            path: path.resolve(__dirname, 'dist'),
+            publicPath: '/',
+            filename: (() => {
+                if (isProduction) return '[name].[chunkhash].js'
+                else return '[name].bundle.js'
+            })()
         },
 
         devtool: (() => {
-            if (isProduction) 'hidden-source-map'
-            else 'cheap-module-eval-source-map'
+            if (isProduction) return 'hidden-source-map'
+            else return 'cheap-module-eval-source-map'
         })(),
 
         devServer: (() => { 
             if (isProduction) return {}
             else return {
-                hot: true,
                 contentBase: './dist',
-                historyApiFallback: true
+                historyApiFallback: {
+                    index: '/'
+                }
             }
         })(),
 
         module: {
             rules: [
-                {test:/\.js$/, exclude: /node_modules/, use: "babel-loader"},
+                {test:/\.js$/, exclude: /node_modules/, use: ['babel-loader']},
                 {test:/\.(jpe?g|png|gif)$/, use: [
                                                 { 
                                                     loader: "url-loader",
@@ -43,6 +69,22 @@ module.exports = (env = {}) => {
                                                     }
                                                 }
                                             ]
+                },
+                { test: /\.scss$/, 
+                    use: ExtractTextPlugin.extract({
+                          use: [
+                            {
+                              loader: 'css-loader', 
+                              options: { sourceMap: true }
+                            },
+                            {
+                              loader: 'sass-loader',
+                              options: { sourceMap: true }
+                            }
+                          ],    
+                          // fallback to inlining styles when extracting is disabled in development
+                          fallback: 'style-loader',
+                        })
                 },
                 {test:/\.css$/, use: (() => {  
                       if (isProduction) return ExtractTextPlugin.extract({
@@ -62,6 +104,10 @@ module.exports = (env = {}) => {
                     template: __dirname + '/app/index.html',
                     filename: 'index.html',
                     inject: 'body'
+                }),
+                new ExtractTextPlugin({
+                    filename: '[name].[contenthash].css',
+                    disable: false //!isProduction // will use fallback in-line loader in development
                 })
             ]
             
@@ -69,8 +115,12 @@ module.exports = (env = {}) => {
                 pluginList.push(
                     // plugins for production only
                     new CleanWebpackPlugin(['dist']),
-                    new ExtractTextPlugin({
-                        filename: '[name].[contenthash].css'
+                    new webpack.HashedModuleIdsPlugin(),
+                    new webpack.optimize.CommonsChunkPlugin({
+                        name: 'vendor'
+                    }),
+                    new webpack.optimize.CommonsChunkPlugin({
+                        name: 'runtime'
                     }),
                     new CompressionPlugin({  
                         asset: "[path].gz[query]",
@@ -83,7 +133,8 @@ module.exports = (env = {}) => {
             } else {
                 pluginList.push(
                     // plugins for development only
-                    new webpack.HotModuleReplacementPlugin()
+                    new webpack.HotModuleReplacementPlugin(),
+                    new webpack.NoEmitOnErrorsPlugin()
                 )
             }
             return pluginList
