@@ -1,13 +1,12 @@
 # Personal Portfolio Site
 
-## [Visit Site: www.evmorrison.com](http://www.evmorrison.com) 
+## [Visit site: evmorrison.com](https://evmorrison.com) 
 
 ## Description
-A personal portfolio website built with [React](https://facebook.github.io/react/) and [Material UI](http://www.material-ui.com/#/),
-with transpiling, bundling, and build processing done with [Webpack](https://webpack.github.io/).
+A personal portfolio website built with [React](https://facebook.github.io/react/),[Material UI](http://www.material-ui.com/#/), and [Styled-Components](https://www.styled-components.com/docs/basics). Transpiling, bundling, and build processing done with [Babel](https://babeljs.io/) and [Webpack](https://webpack.github.io/).
 
-## Responsive Design
-The site is made responsive using flexbox CSS.
+## Styling with Styled-Components
+React has given rise to some new ways to approach css styling, and I absolutely love [Styled-Components](https://www.styled-components.com/docs/basics). It's among the several more popular liabraries, along with Radium, Glamorous, etc. There are good reasons to like any of these, but for me Styled-Components, is really amazing.
 
 ## Details
 The site is fairly clean and simple on a single page. There's no permanent navbar, but 
