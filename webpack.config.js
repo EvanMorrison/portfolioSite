@@ -2,9 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CompressionPlugin = require('compression-webpack-plugin')
-
+const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = (env = {}) => {
     const isProduction = env.production === true;
@@ -18,7 +16,6 @@ module.exports = (env = {}) => {
                         'material-ui',
                         'react',
                         'react-dom',
-                        'react-fontawesome',
                         'react-router',
                         'react-scroll-to-component',
                         'react-tap-event-plugin'
@@ -26,7 +23,6 @@ module.exports = (env = {}) => {
             }
             else {
                 return [
-                         'react-hot-loader/patch',
                          'webpack-hot-middleware/client',
                          './app/index.js'
                         ]
@@ -58,43 +54,33 @@ module.exports = (env = {}) => {
         })(),
 
         module: {
-            rules: [
-                {test:/\.js$/, exclude: /node_modules/, use: ['babel-loader']},
-                {test:/\.(jpe?g|png|gif)$/, use: [
-                                                { 
-                                                    loader: "url-loader",
-                                                    options: {
-                                                        limit: 10000,
-                                                        name: 'assets/[name].[hash].[ext]'
-                                                    }
-                                                }
-                                            ]
-                },
-                { test: /\.scss$/, 
-                    use: ExtractTextPlugin.extract({
-                          use: [
-                            {
-                              loader: 'css-loader', 
-                              options: { sourceMap: true }
-                            },
-                            {
-                              loader: 'sass-loader',
-                              options: { sourceMap: true }
-                            }
-                          ],    
-                          // fallback to inlining styles when extracting is disabled in development
-                          fallback: 'style-loader',
-                        })
-                },
-                {test:/\.css$/, use: (() => {  
-                      if (isProduction) return ExtractTextPlugin.extract({
-                                          fallback: 'style-loader',
-                                          use: 'css-loader?sourceMap'
-                                      })
-                      else return ['style-loader', 'css-loader']
-                  })()
+          rules: [
+            {
+              test:/\.js$/,
+              exclude: /node_modules/,
+              use: [{
+                loader: 'babel-loader'
+              }, {
+                loader: "eslint-loader",
+                options: {
+                  emitWarning: true,
+                  failOnWarning: false
                 }
-            ]
+              }]
+            },
+            {
+              test:/\.(jpe?g|png|gif)$/,
+              use: [
+                { 
+                  loader: "url-loader",
+                  options: {
+                    limit: 10000,
+                    name: 'assets/[name].[hash].[ext]'
+                  }
+                }
+              ]
+            }
+          ]
         },
 
         plugins: (() => {
@@ -104,10 +90,6 @@ module.exports = (env = {}) => {
                     template: __dirname + '/app/index.html',
                     filename: 'index.html',
                     inject: 'body'
-                }),
-                new ExtractTextPlugin({
-                    filename: '[name].[contenthash].css',
-                    disable: false //!isProduction // will use fallback in-line loader in development
                 })
             ]
             

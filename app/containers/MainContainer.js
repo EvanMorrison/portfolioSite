@@ -21,7 +21,7 @@ import AboutMe from '../components/AboutMe';
 import Projects from '../components/Projects';
 
 import { transparent } from 'material-ui/styles/colors';
-import '../main.scss';
+import '../globalStyle.js';
 
 const muiTheme = getMuiTheme({
   appBar: { color: transparent,
