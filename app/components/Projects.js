@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from '@emotion/styled';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from '@material-ui/core/Card';
 import ProjectCard from './ProjectCard.js';
 import {Section, SectionHeading} from './shared';
 
@@ -8,9 +8,7 @@ import projectList from '../data/projectList';
 import { logoUrls } from '../data/imgUrls';
 import bgImg from '../images/heros/rock-ocean-sky-1080x720.jpeg'
 
-const ProjectSection = styled(Section).attrs({
-  bgImg: bgImg
-})`
+const ProjectSection = styled(Section)`
   padding-bottom: 200px;
   &::after {
   position: absolute;
@@ -19,7 +17,7 @@ const ProjectSection = styled(Section).attrs({
   content: ' ';
   height: 100%;
   width: 100%;
-  background: url(${props => props.bgImg});
+  background: url(${bgImg});
   background-size: cover, cover;
   background-repeat: no-repeat, no-repeat;
   background-position: bottom left, bottom center;

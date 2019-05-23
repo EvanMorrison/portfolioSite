@@ -52,7 +52,7 @@ module.exports = (env = {}) => {
                 }
             }
         })(),
-
+        mode: isProduction ? "production" : "development",
         module: {
           rules: [
             {

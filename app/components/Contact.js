@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-import Avatar from 'material-ui/Avatar';
-import Divider from 'material-ui/Divider';
-import FontAwesome from 'react-fontawesome';
+import Avatar from '@material-ui/core/Avatar';
+import Divider from '@material-ui/core/Divider';
+// import FontAwesome from 'react-fontawesome';
 import {Section, SectionHeading} from './shared';
 import ermAvatar from '../images/avatar-bkg-bw.jpg';
 
@@ -41,22 +41,22 @@ class Contact extends React.Component {
         </div>
         <ContactInfoGroup>
           <ContactItem>
-            <FontAwesome name='envelope' size='2x' style={{color:'#000', marginRight:'25px'}} />
+            {/* <FontAwesome name='envelope' size='2x' style={{color:'#000', marginRight:'25px'}} /> */}
             <a href="mailto:evanrmorrison@gmail.com">evanrmorrison@gmail.com</a>
           </ContactItem> 
           <Divider />
           <ContactItem>
-            <FontAwesome name='phone' size='2x' style={{color:'#000', marginRight:'25px'}} />
+            {/* <FontAwesome name='phone' size='2x' style={{color:'#000', marginRight:'25px'}} /> */}
             <a href="tel:801-792-9290">801-792-9290</a>
           </ContactItem>
           <Divider />
           <ContactItem>
-            <FontAwesome name='github' size='2x' style={{color:'#000', marginRight:'25px'}} />
+            {/* <FontAwesome name='github' size='2x' style={{color:'#000', marginRight:'25px'}} /> */}
             <a href="https://github.com/EvanMorrison">EvanMorrison</a>
           </ContactItem>
           <Divider />
           <ContactItem>
-            <FontAwesome name='file-text' size='2x' style={{color:'#000', marginRight:'25px'}} />
+            {/* <FontAwesome name='file-text' size='2x' style={{color:'#000', marginRight:'25px'}} /> */}
             <a href="https://drive.google.com/file/d/0B8qa-UZelBhOQXUzb0h4MDg1Wmc/view?usp=sharing" target="_blank">view/download resume</a>
           </ContactItem>
         </ContactInfoGroup>

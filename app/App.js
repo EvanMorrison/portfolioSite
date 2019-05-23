@@ -8,12 +8,10 @@ class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <Global styles={globalStyles}/>
         <Route path="/" component={MainContainer}/>
       </BrowserRouter>
     )
   }
 }
     
-
 export default App

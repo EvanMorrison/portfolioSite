@@ -15,15 +15,6 @@ const globalStyle = css`
     font-size: 15px;
   }
 
-  .appbar.main-menu {
-    position: fixed !important;
-    top: 0px;
-    background-size: cover;
-    opacity: 1;
-    transition: .3s ease;
-  }
-
-
   a {
     color: #ff4040;
     text-decoration: none;

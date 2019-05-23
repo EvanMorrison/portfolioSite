@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-// Material UI
-import AppBar from 'material-ui/AppBar';
-import IconMenu from 'material-ui/IconMenu';
-import IconButton from 'material-ui/IconButton';
-import MenuIcon from 'material-ui/svg-icons/navigation/menu';
-import MenuItem from 'material-ui/MenuItem';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import spacing from 'material-ui/styles/spacing';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import AppBar from '@material-ui/core/AppBar';
+import Menu from '@material-ui/core/Menu';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import Toolbar from '@material-ui/core/Toolbar';
+import { withStyles } from '@material-ui/core/styles';
 
-// third party
 import scrollToComponent from 'react-scroll-to-component';
 
 // Customized Components
@@ -20,30 +17,40 @@ import Contact from '../components/Contact';
 import AboutMe from '../components/AboutMe';
 import Projects from '../components/Projects';
 
-import { transparent } from 'material-ui/styles/colors';
-import '../globalStyle.js';
+import { Global, css } from '@emotion/core';
+import globalStyles from '../globalStyle.js';
 
-const muiTheme = getMuiTheme({
-  appBar: { color: transparent,
-             }  
-})
-
+const styles = {
+  root: {
+    backgroundColor: "transparent",
+    boxShadow: "none"
+  },
+  primary: {
+    color: '#FFF'
+  },
+  secondary: {
+    color: '#000'
+  }
+};
 
 class MainContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
+      anchorEl: null,
       scrollToTarget: "Top",
       menuClick: false,
       appBarOpacity: 0,
-      menuButtonColor: '#fff'
+      menuButtonColor: '#FFF',
+      open: false
     }
+    this.menuBtn = React.createRef();
+    // this.Top = React.createRef();
+    // this.Contact = React.createRef();
+    // this.About = React.createRef();
+    // this.Projects = React.createRef();
   }
-  componentWillMount() {
-    this.setState({
-      muiTheme: getMuiTheme(),
-    });
-  }
+  
   componentDidMount() {
     this.lastScroll = 0;
       window.addEventListener('scroll', () => {
@@ -52,63 +59,67 @@ class MainContainer extends Component {
       })
   }
   handleScrolling(windowHeight) {
-    // clearTimeout(this.appBarFade);
-    // let st = window.scrollY - this.lastScroll;
     if ( (window.scrollY / windowHeight) % 2 >= 1  || window.scrollY > (3 * windowHeight) ) {
-        this.setState({
-          menuButtonColor: '#000'
+        this.setState(({menuButtonColor}) => {
+          if(menuButtonColor === '#FFF') return {menuButtonColor: '#000'}
+          else return null;
         });
     } else {
-      this.setState({
-        menuButtonColor: '#fff'
+      this.setState(({menuButtonColor}) => {
+        if(menuButtonColor === '#000') return {menuButtonColor: '#FFF'}
+        else return null;
       })
     } 
-    //  this.lastScroll = this.lastScroll + st; 
   }
 
   handleMenuTap(ev) {
     this.setState({
       menuClick: true
     })
-    let ref = ReactDOM.findDOMNode(this.refs[ev.target.innerHTML])
-    scrollToComponent(ref, {
+    scrollToComponent(this[ev.target.textContent], {
       align: 'top',
       duration: 1000
     })
     this.setState({
-      menuClick: false
+      menuClick: false,
+      open: false
     })
+  }
+
+  handleOpenMenu = (e) => {
+    this.setState({open: true, anchorEl: e.currentTarget});
   }
   
     
   render () {
-  return (
-      <MuiThemeProvider muiTheme={muiTheme}>
-        <div>
-          <AppBar
-            zDepth={0} 
-            iconElementLeft={
-              <IconMenu 
-                iconButtonElement={<IconButton><MenuIcon color={this.state.menuButtonColor}/></IconButton>}
-                anchorOrigin={{horizontal: 'left', vertical:'top'}}
-                targetOrigin={{horizontal: 'left', vertical: 'top'}}
+    return (
+      <div>
+        <Global styles={globalStyles}/>
+        <AppBar className={this.props.classes.root}>
+          <Toolbar>
+            <IconButton ref={this.menuBtn} onClick={this.handleOpenMenu}>
+              <div css={css`svg[class^='MuiSvgIcon']{color: ${this.state.menuButtonColor};}`}>
+                <MenuIcon className={this.props.classes.primary}/>
+              </div>
+            </IconButton>
+            <Menu 
+              anchorEl={this.state.anchorEl}
+              open={this.state.open}
               >
-                <MenuItem primaryText="Top" onClick={this.handleMenuTap.bind(this)} />
-                <MenuItem primaryText="Contact" onClick={this.handleMenuTap.bind(this)} />
-                <MenuItem primaryText="About" onClick={this.handleMenuTap.bind(this)} />
-                <MenuItem primaryText="Projects" onClick={this.handleMenuTap.bind(this)} />
-              </IconMenu>}
-            title="" 
-            className="appbar main-menu"
-          />
-          <Home ref="Top" />
-          <Contact ref="Contact" />
-          <AboutMe ref="About" />
-          <Projects ref="Projects" />
-        </div>
-      </MuiThemeProvider>
+                <MenuItem onClick={this.handleMenuTap.bind(this)}>Top</MenuItem>
+                <MenuItem onClick={this.handleMenuTap.bind(this)}>Contact</MenuItem>
+                <MenuItem onClick={this.handleMenuTap.bind(this)}>About</MenuItem>
+                <MenuItem onClick={this.handleMenuTap.bind(this)}>Projects</MenuItem>
+              </Menu>
+          </Toolbar>
+        </AppBar>
+        <Home ref={el => this.Top = el} />
+        <Contact ref={el => this.Contact = el}/>
+        <AboutMe ref={el => this.About = el} />
+        <Projects ref={el => this.Projects = el} />
+      </div>
     )
   }  
 }
 
-export default MainContainer
+export default withStyles(styles)(MainContainer);
