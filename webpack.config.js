@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = (env = {}) => {
     const isProduction = env.production === true;
@@ -13,7 +14,7 @@ module.exports = (env = {}) => {
             if (isProduction) return {
                 index: './app/index.js',
                 vendor: [
-                        'material-ui',
+                        '@material-ui/core',
                         'react',
                         'react-dom',
                         'react-router',
@@ -82,7 +83,23 @@ module.exports = (env = {}) => {
             }
           ]
         },
-
+        optimization: {
+          minimize: isProduction,
+          minimizer: [
+            new TerserPlugin({
+            parallel: true
+          })],
+          runtimeChunk: isProduction ? "single" : false,
+          splitChunks: {
+            cacheGroups: {
+              commons: {
+                name: "commons",
+                chunks: "initial",
+                minChunks: 2
+              }
+            }
+          }
+        },
         plugins: (() => {
             const pluginList = [
                 // plugins for both environments
@@ -96,20 +113,16 @@ module.exports = (env = {}) => {
             if (isProduction) {
                 pluginList.push(
                     // plugins for production only
-                    new CleanWebpackPlugin(['dist']),
+                    new CleanWebpackPlugin(),
                     new webpack.HashedModuleIdsPlugin(),
-                    new webpack.optimize.CommonsChunkPlugin({
-                        name: 'vendor'
-                    }),
-                    new webpack.optimize.CommonsChunkPlugin({
-                        name: 'runtime'
-                    }),
                     new CompressionPlugin({  
-                        asset: "[path].gz[query]",
-                        algorithm: "gzip",
+                      filename: "[path].gz[query]",
+                      algorithm: "gzip",
+                      compressionOptions: {
                         threshold: 10240,
                         test: /\.js$|\.css$|\.html$/,
                         minRatio: 0.8
+                      }
                     })
                 )
             } else {

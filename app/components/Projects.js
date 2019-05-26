@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from '@emotion/styled';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from '@material-ui/core/Card';
 import ProjectCard from './ProjectCard.js';
 import {Section, SectionHeading} from './shared';
 

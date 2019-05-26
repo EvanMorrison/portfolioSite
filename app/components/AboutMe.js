@@ -27,8 +27,8 @@ class AboutMe extends Component {
           <div style={{maxWidth:'700px'}}>
             <SectionHeading>ABOUT ME</SectionHeading>
             <Paragraph>I’m a full stack web developer with a background in real estate law and applied math.</Paragraph>
-            <Paragraph>More than ten years ago my interest in coding led me to teach myself enough to code my first 'app', a tool for automating case handling in my real estate practice. Ever since then I&rsquo;ve known coding was what I really wanted to do.</Paragraph>
-            <Paragraph>I have a portfolio of work with various clients and open source projects (check it out below!). I am continually seeking to expand my skills and knowledge and tackle new challenges.</Paragraph>
+            <Paragraph>More than ten years ago my interest in coding led me to teach myself enough to code my first 'app', a tool for automating case handling in my real estate practice. Ever since then I&rsquo;ve known coding was what I really want to do.</Paragraph>
+            <Paragraph>I'm currrently a software engineer with <a href='https://tazworks.com' target='_blank'>TazWorks</a>, doing fullstack work with Java, JavaScript & React. And I have a portfolio of work with various clients and open source projects (check it out below!). I am continually seeking to expand my skills and knowledge and tackle new challenges.</Paragraph>
             <LogoGroup>
               {this.getLogos()}
             </LogoGroup>
