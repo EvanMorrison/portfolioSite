@@ -1,18 +1,24 @@
 const logoUrls = {
+      "JavaScript": require('../images/logos/js.png'),
+      "Java": require('../images/logos/java.png'),
+      "Elixir": require('../images/logos/elixir.png'),
       "HTML5": require('../images/logos/html5-wt.png'),
       "CSS3": require('../images/logos/css3-wt.png'),
-      "JavaScript": require('../images/logos/js.png'),
-      "AngularJS": require('../images/logos/angular.png'),
-      "AngularMaterial": require('../images/logos/angular_materialdesign.jpg'),
-      "Sass": require('../images/logos/sass.jpg'),
-      "Bootstrap": require('../images/logos/bootstrap.jpg'),
       "ReactJS": require('../images/logos/reactjs1.jpg'),
-      "jQuery": require('../images/logos/jquery-wt.png'),
+      "Emotion": require('../images/logos/emotion.png'),
       "Nodejs": require('../images/logos/nodejs.png'),
+      "Webpack": require('../images/logos/webpack-wt.jpg'),
+      "AngularJS": require('../images/logos/angular.png'),
       "express": require('../images/logos/express-wt.png'),
       "MongoDB": require('../images/logos/mongodb.jpg'),
-      "Webpack": require('../images/logos/webpack-wt.jpg'),
+      "MySQL": require('../images/logos/my_sql.png'),
+      "PostgreSQL": require('../images/logos/postgresql.png'),
+      "Sass": require('../images/logos/sass.jpg'),
+      "AngularMaterial": require('../images/logos/angular_materialdesign.jpg'),
       "Github": require('../images/logos/github.png'),
+      "Bootstrap": require('../images/logos/bootstrap.jpg'),
+      "jQuery": require('../images/logos/jquery-wt.png'),
+      "MaterialUI": require('../images/logos/material_ui.png'),
       "npm": require('../images/logos/npm.png'),
       "ES6": require('../images/logos/es6.png'),
       "Babel": require('../images/logos/babel_solid.png'),
@@ -20,11 +26,11 @@ const logoUrls = {
       "AngularUI": require('../images/logos/Angular_UI.png'),
       "Heroku": require('../images/logos/heroku.png'),
       "UIRouter": require('../images/logos/UI_Router.jpg'),
-      "Bower": require('../images/logos/bower.png')
+      "Bower": require('../images/logos/bower.png'),
   }
 
 const projectUrls = {
-    "This Website": require('../images/projects/portfolioSite-500x300.jpg'),
+    "Portfolio Site": require('../images/projects/portfolioSite-500x300.jpg'),
     "Book Lovers": require('../images/projects/bookreviewsite-1080x720.jpg'),
     "Shopping List": require('../images/projects/shoppingList-500x300.jpg'),
     "Mad-Lib": require('../images/projects/madLib-500x300.jpg'),
@@ -40,7 +46,7 @@ const projectUrls = {
 
   }
 
-  const heroUrls = [
+const heroUrls = [
     require('../images/heros/blurred-citylights1834820-1080x720.jpg'),
     require('../images/heros/macbook-from-back-1080x720.jpg'),
     require('../images/heros/bokeh-217895-1080x720.jpg'),

@@ -2,9 +2,8 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CompressionPlugin = require('compression-webpack-plugin')
-
+const CompressionPlugin = require('compression-webpack-plugin');
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = (env = {}) => {
     const isProduction = env.production === true;
@@ -15,10 +14,9 @@ module.exports = (env = {}) => {
             if (isProduction) return {
                 index: './app/index.js',
                 vendor: [
-                        'material-ui',
+                        '@material-ui/core',
                         'react',
                         'react-dom',
-                        'react-fontawesome',
                         'react-router',
                         'react-scroll-to-component',
                         'react-tap-event-plugin'
@@ -26,7 +24,6 @@ module.exports = (env = {}) => {
             }
             else {
                 return [
-                         'react-hot-loader/patch',
                          'webpack-hot-middleware/client',
                          './app/index.js'
                         ]
@@ -56,47 +53,53 @@ module.exports = (env = {}) => {
                 }
             }
         })(),
-
+        mode: isProduction ? "production" : "development",
         module: {
-            rules: [
-                {test:/\.js$/, exclude: /node_modules/, use: ['babel-loader']},
-                {test:/\.(jpe?g|png|gif)$/, use: [
-                                                { 
-                                                    loader: "url-loader",
-                                                    options: {
-                                                        limit: 10000,
-                                                        name: 'assets/[name].[hash].[ext]'
-                                                    }
-                                                }
-                                            ]
-                },
-                { test: /\.scss$/, 
-                    use: ExtractTextPlugin.extract({
-                          use: [
-                            {
-                              loader: 'css-loader', 
-                              options: { sourceMap: true }
-                            },
-                            {
-                              loader: 'sass-loader',
-                              options: { sourceMap: true }
-                            }
-                          ],    
-                          // fallback to inlining styles when extracting is disabled in development
-                          fallback: 'style-loader',
-                        })
-                },
-                {test:/\.css$/, use: (() => {  
-                      if (isProduction) return ExtractTextPlugin.extract({
-                                          fallback: 'style-loader',
-                                          use: 'css-loader?sourceMap'
-                                      })
-                      else return ['style-loader', 'css-loader']
-                  })()
+          rules: [
+            {
+              test:/\.js$/,
+              exclude: /node_modules/,
+              use: [{
+                loader: 'babel-loader'
+              }, {
+                loader: "eslint-loader",
+                options: {
+                  emitWarning: true,
+                  failOnWarning: false
                 }
-            ]
+              }]
+            },
+            {
+              test:/\.(jpe?g|png|gif)$/,
+              use: [
+                { 
+                  loader: "url-loader",
+                  options: {
+                    limit: 10000,
+                    name: 'assets/[name].[hash].[ext]'
+                  }
+                }
+              ]
+            }
+          ]
         },
-
+        optimization: {
+          minimize: isProduction,
+          minimizer: [
+            new TerserPlugin({
+            parallel: true
+          })],
+          runtimeChunk: isProduction ? "single" : false,
+          splitChunks: {
+            cacheGroups: {
+              commons: {
+                name: "commons",
+                chunks: "initial",
+                minChunks: 2
+              }
+            }
+          }
+        },
         plugins: (() => {
             const pluginList = [
                 // plugins for both environments
@@ -104,30 +107,22 @@ module.exports = (env = {}) => {
                     template: __dirname + '/app/index.html',
                     filename: 'index.html',
                     inject: 'body'
-                }),
-                new ExtractTextPlugin({
-                    filename: '[name].[contenthash].css',
-                    disable: false //!isProduction // will use fallback in-line loader in development
                 })
             ]
             
             if (isProduction) {
                 pluginList.push(
                     // plugins for production only
-                    new CleanWebpackPlugin(['dist']),
+                    new CleanWebpackPlugin(),
                     new webpack.HashedModuleIdsPlugin(),
-                    new webpack.optimize.CommonsChunkPlugin({
-                        name: 'vendor'
-                    }),
-                    new webpack.optimize.CommonsChunkPlugin({
-                        name: 'runtime'
-                    }),
                     new CompressionPlugin({  
-                        asset: "[path].gz[query]",
-                        algorithm: "gzip",
+                      filename: "[path].gz[query]",
+                      algorithm: "gzip",
+                      compressionOptions: {
                         threshold: 10240,
                         test: /\.js$|\.css$|\.html$/,
                         minRatio: 0.8
+                      }
                     })
                 )
             } else {

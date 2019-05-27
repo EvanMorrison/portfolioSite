@@ -3,6 +3,24 @@ import { projectUrls } from '../data/imgUrls';
 
 const projectList = [
       {
+        name: "Therapy Business",
+        siteUrl: "https://manualtherapy4wellness.com",
+        imgUrl: projectUrls['Therapy Business'],
+        gitUrl: "https://github.com/EvanMorrison/mt4w-romano",
+        frameworks: ['ReactJS', 'Emotion', 'MaterialUI', 'Webpack']
+      },{
+        name: "CPA Business Client",
+        siteUrl: "http://moshero-cpa.firebaseapp.com",
+        imgUrl: projectUrls['Moshero CPA Business'],
+        gitUrl: "https://github.com/EvanMorrison/moshero-cpa",
+        frameworks: ['ReactJS', 'Emotion', 'Webpack']
+      },{
+        name: "Portfolio Website",
+        siteUrl: "http://www.evmorrison.com",
+        imgUrl: projectUrls['Portfolio Site'],
+        gitUrl: "https://github.com/EvanMorrison/portfolioSite",
+        frameworks: ['ReactJS', 'Emotion', 'MaterialUI', 'Nodejs','npm','ES6','Babel','Webpack']
+      },{
         name: "Real-T",
         siteUrl: "http://real-t.evmorrison.com",
         imgUrl: projectUrls['Real-T'],
@@ -14,24 +32,6 @@ const projectList = [
         imgUrl: projectUrls['Book Lovers'],
         gitUrl: "https://github.com/EvanMorrison/BookReviewSite",
         frameworks: ['AngularJS', 'Bootstrap', 'Nodejs', 'MongoDB']
-      },{
-        name: "Therapy Business",
-        siteUrl: "https://manualtherapy4wellness.com",
-        imgUrl: projectUrls['Therapy Business'],
-        gitUrl: "https://github.com/EvanMorrison/mt4w-romano",
-        frameworks: ['AngularJS', 'AngularMaterial', 'UIRouter', 'npm', 'Webpack']
-      },{
-        name: "CPA Business Client",
-        siteUrl: "http://moshero-cpa.firebaseapp.com",
-        imgUrl: projectUrls['Moshero CPA Business'],
-        gitUrl: "https://github.com/EvanMorrison/moshero-cpa",
-        frameworks: ['AngularJS', 'AngularMaterial', 'UIRouter', 'npm', 'Webpack']
-      },{
-        name: "This Website",
-        siteUrl: "http://www.evmorrison.com",
-        imgUrl: projectUrls['This Website'],
-        gitUrl: "https://github.com/EvanMorrison/portfolioSite",
-        frameworks: ['ReactJS','Nodejs','npm','ES6','Babel','Webpack']
       },{
         name: "Mad-Lib",
         siteUrl: "http://evmorrison.com/sampleprojects/angularMadlib",

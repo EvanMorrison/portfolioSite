@@ -1,17 +1,27 @@
 {
   "presets": [
-    "env", "react"
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "browsers": [
+            "defaults and not ie <= 11 and not android < 5 and not dead"
+          ]
+        },
+        "useBuiltIns": "entry"
+      }
+    ],
+    "@babel/preset-react",
+    [
+      "@emotion/babel-preset-css-prop",
+      {
+        "autoLabel": true,
+        "labelFormat": "[local]",
+        "sourceMap": true
+      }
+    ]
   ],
   "plugins": [
-    "transform-class-properties",
-    "transform-object-rest-spread",
-    "transform-react-jsx-img-import"
-  ],
-  "env": {
-    "development": {
-      "plugins": [
-        "react-hot-loader/babel"
-      ]
-    }
-  }
+    "@babel/plugin-proposal-class-properties"
+  ]
 }
