@@ -14,8 +14,13 @@ const CardContainer = styled.div`
   margin: 50px 8px 15px;
   min-width: 300px;
   max-width: 600px;
-  transform: scale(${props => props.size});
-  transition: transform .2s ease-out;
+  transform: scale(1);
+  transition: all .2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.005);
+    box-shadow: 1px 1px 30px rgba(0, 0, 0, 0.4);    
+  }
 `
 const OverlayLogo = styled.img`
   margin: 0 4px;
@@ -27,13 +32,6 @@ const OverlayLogo = styled.img`
   border-radius: 5px;
 `
 class ProjectCard extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      size: 1
-    }
-  }
-
   getLogos(frameworks) {
     return (
       frameworks.map(framework => {
@@ -42,25 +40,11 @@ class ProjectCard extends Component {
     )
   }
 
-  // increase shadow depth on mouse enter
-  handleMouseEnter = () => {
-    this.setState({
-      size: 1.005
-    })
-  }
-  // return shadow depth to normal on mouse leave
-  handleMouseLeave = (refName, e) => {
-    this.setState({
-      size: 1.0
-    })
-  }
- 
   render() {
     const project = this.props.project;
     return (
-            <CardContainer size={this.state.size}>
-              <Card onMouseEnter={this.handleMouseEnter}
-                    onMouseLeave={this.handleMouseLeave}>
+            <CardContainer>
+              <Card>
                 <a href={project.siteUrl} target='_blank' css={{':hover':{textDecoration: 'none'}}}>
                   <CardMedia
                     component='img'

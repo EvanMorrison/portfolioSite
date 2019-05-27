@@ -17,7 +17,7 @@ const projectList = [
       },{
         name: "Portfolio Website",
         siteUrl: "http://www.evmorrison.com",
-        imgUrl: projectUrls['This Website'],
+        imgUrl: projectUrls['Portfolio Site'],
         gitUrl: "https://github.com/EvanMorrison/portfolioSite",
         frameworks: ['ReactJS', 'Emotion', 'MaterialUI', 'Nodejs','npm','ES6','Babel','Webpack']
       },{

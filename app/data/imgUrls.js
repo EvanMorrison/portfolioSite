@@ -30,7 +30,7 @@ const logoUrls = {
   }
 
 const projectUrls = {
-    "This Website": require('../images/projects/portfolioSite-500x300.jpg'),
+    "Portfolio Site": require('../images/projects/portfolioSite-500x300.jpg'),
     "Book Lovers": require('../images/projects/bookreviewsite-1080x720.jpg'),
     "Shopping List": require('../images/projects/shoppingList-500x300.jpg'),
     "Mad-Lib": require('../images/projects/madLib-500x300.jpg'),
@@ -46,7 +46,7 @@ const projectUrls = {
 
   }
 
-  const heroUrls = [
+const heroUrls = [
     require('../images/heros/blurred-citylights1834820-1080x720.jpg'),
     require('../images/heros/macbook-from-back-1080x720.jpg'),
     require('../images/heros/bokeh-217895-1080x720.jpg'),
