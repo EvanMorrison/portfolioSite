@@ -52,7 +52,7 @@ class ProjectCard extends Component {
                     height='350'
                   />
                   <div css={css`
-                    [class^='MuiCardHeader-root'] {
+                    .custom-card-header {
                       position: absolute;
                       left: 0;
                       right: 0;
@@ -62,6 +62,7 @@ class ProjectCard extends Component {
                     }
                   `}>
                     <CardHeader
+                      className='custom-card-header'
                       avatar={
                         <span>
                           <div css={{fontSize: '24px'}}>
