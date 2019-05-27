@@ -67,18 +67,29 @@ class ProjectCard extends Component {
                     image={project.imgUrl}
                     height='350'
                   />
-                  <CardHeader
-                    avatar={
-                      <span>
-                        <span css={{color: '#000', fontSize: '18px'}}>
-                          {project.name}
-                        </span>
+                  <div css={css`
+                    [class^='MuiCardHeader-root'] {
+                      position: absolute;
+                      left: 0;
+                      right: 0;
+                      bottom: 0;
+                      background: rgba(0, 0, 0, 0.4);
+                      color: #FFF;
+                    }
+                  `}>
+                    <CardHeader
+                      avatar={
                         <span>
-                          {this.getLogos(project.frameworks)}
-                        </span>
-                      </span>}
-                    css={{height: '80px'}}>
-                  </CardHeader>
+                          <div css={{fontSize: '24px'}}>
+                            {project.name}
+                          </div>
+                          <span>
+                            {this.getLogos(project.frameworks)}
+                          </span>
+                        </span>}
+                      css={{height: '80px'}}>
+                    </CardHeader>
+                  </div>
                 </a>
                 <Tooltip title='see repo on github' placement='top'>
                   <IconButton
@@ -86,7 +97,7 @@ class ProjectCard extends Component {
                     target='_blank'
                     css={{position:'absolute', bottom:'5px', right:'20px', zIndex:'1000'}}
                   >
-                    <img src={logoUrls['Github']} alt='Github' height='36px'/>
+                    <img src={logoUrls['Github']} alt='Github' height='36px' css={{background: '#FFF', borderRadius: '50%'}}/>
                   </IconButton>
                 </Tooltip>
               </Card>

@@ -15,7 +15,7 @@ const projectList = [
         gitUrl: "https://github.com/EvanMorrison/moshero-cpa",
         frameworks: ['ReactJS', 'Emotion', 'Webpack']
       },{
-        name: "This Website",
+        name: "Portfolio Website",
         siteUrl: "http://www.evmorrison.com",
         imgUrl: projectUrls['This Website'],
         gitUrl: "https://github.com/EvanMorrison/portfolioSite",
