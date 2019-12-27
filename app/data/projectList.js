@@ -7,14 +7,14 @@ const projectList = [
         siteUrl: "https://draft-js-rte-evanmorrison.netlify.com",
         imgUrl: projectUrls['Rich Text Editor'],
         gitUrl: "https://github..com/EvanMorrison/draft-js-rte",
-        frameworks: ['ReactJS', 'Emotion', 'Webpack']
+        frameworks: ['ReactJS', 'Emotion', 'Webpack', 'Nextjs']
       },
       {
         name: "Lymphatic Therapy",
         siteUrl: "https://dynamiclymphatics.com",
         imgUrl: projectUrls['Lymphatic Therapy'],
         gitUrl: "https://github.com/EvanMorrison/dynalymph-next",
-        frameworks: ['ReactJS', 'Emotion', 'Webpack']
+        frameworks: ['ReactJS', 'Emotion', 'Webpack', 'Nextjs']
       },
       {
         name: "Therapy Business",
