@@ -3,6 +3,20 @@ import { projectUrls } from '../data/imgUrls';
 
 const projectList = [
       {
+        name: "Rich Text Editor",
+        siteUrl: "https://draft-js-rte-evanmorrison.netlify.com",
+        imgUrl: projectUrls['Rich Text Editor'],
+        gitUrl: "https://github..com/EvanMorrison/draft-js-rte",
+        frameworks: ['ReactJS', 'Emotion', 'Webpack']
+      },
+      {
+        name: "Lymphatic Therapy",
+        siteUrl: "https://dynamiclymphatics.com",
+        imgUrl: projectUrls['Lymphatic Therapy'],
+        gitUrl: "https://github.com/EvanMorrison/dynalymph-next",
+        frameworks: ['ReactJS', 'Emotion', 'Webpack']
+      },
+      {
         name: "Therapy Business",
         siteUrl: "https://manualtherapy4wellness.com",
         imgUrl: projectUrls['Therapy Business'],

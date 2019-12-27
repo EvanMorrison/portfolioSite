@@ -6,6 +6,7 @@ const logoUrls = {
       "CSS3": require('../images/logos/css3-wt.png'),
       "ReactJS": require('../images/logos/reactjs1.jpg'),
       "Emotion": require('../images/logos/emotion.png'),
+      "Nextjs": require('../images/logos/next-js.png'),
       "Nodejs": require('../images/logos/nodejs.png'),
       "Webpack": require('../images/logos/webpack-wt.jpg'),
       "AngularJS": require('../images/logos/angular.png'),
@@ -31,6 +32,8 @@ const logoUrls = {
 
 const projectUrls = {
     "Portfolio Site": require('../images/projects/portfolioSite-500x300.jpg'),
+    "Lymphatic Therapy": require('../images/projects/dynamiclymphatics-500x300.jpg'),
+    "Rich Text Editor": require('../images/projects/draft-js-500-300.jpg'),
     "Book Lovers": require('../images/projects/bookreviewsite-1080x720.jpg'),
     "Shopping List": require('../images/projects/shoppingList-500x300.jpg'),
     "Mad-Lib": require('../images/projects/madLib-500x300.jpg'),
