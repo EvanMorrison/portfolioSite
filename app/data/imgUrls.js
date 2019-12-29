@@ -34,6 +34,7 @@ const projectUrls = {
     "Portfolio Site": require('../images/projects/portfolioSite-500x300.jpg'),
     "Lymphatic Therapy": require('../images/projects/dynamiclymphatics-500x300.jpg'),
     "Rich Text Editor": require('../images/projects/draft-js-500-300.jpg'),
+    "Multiselect Demo": require('../images/projects/multiselect-500x300.jpg'),
     "Book Lovers": require('../images/projects/bookreviewsite-1080x720.jpg'),
     "Shopping List": require('../images/projects/shoppingList-500x300.jpg'),
     "Mad-Lib": require('../images/projects/madLib-500x300.jpg'),

@@ -6,17 +6,21 @@ const projectList = [
         name: "Rich Text Editor",
         siteUrl: "https://draft-js-rte-evanmorrison.netlify.com",
         imgUrl: projectUrls['Rich Text Editor'],
-        gitUrl: "https://github..com/EvanMorrison/draft-js-rte",
+        gitUrl: "https://github.com/EvanMorrison/draft-js-rte",
         frameworks: ['ReactJS', 'Emotion', 'Webpack', 'Nextjs']
-      },
-      {
+      },{
+        name: "Multiselect Component",
+        siteUrl: "https://multiselect-demo-evanmorrison.netlify.com",
+        imgUrl: projectUrls['Multiselect Demo'],
+        gitUrl: "https://github.com/EvanMorrison/multiselect-demo",
+        frameworks: ['ReactJS', 'Emotion', 'Webpack', 'Nextjs']
+      },{
         name: "Lymphatic Therapy",
         siteUrl: "https://dynamiclymphatics.com",
         imgUrl: projectUrls['Lymphatic Therapy'],
         gitUrl: "https://github.com/EvanMorrison/dynalymph-next",
         frameworks: ['ReactJS', 'Emotion', 'Webpack', 'Nextjs']
-      },
-      {
+      },{
         name: "Therapy Business",
         siteUrl: "https://manualtherapy4wellness.com",
         imgUrl: projectUrls['Therapy Business'],
