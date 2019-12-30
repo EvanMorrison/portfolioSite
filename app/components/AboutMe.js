@@ -16,7 +16,7 @@ const LogoGroup = styled.div`
 class AboutMe extends Component {
   
   getLogos() {
-    return Object.keys(logoUrls).filter((e,i) => i < 13).map(key =>
+    return Object.keys(logoUrls).filter((e,i) => i < 14).map(key =>
       <img key={logoUrls[key]} src={logoUrls[key]} alt={key} height="64px" style={{marginRight:'24px', marginTop:'15px'}}/>
       )
   }

@@ -3,6 +3,12 @@ import { projectUrls } from '../data/imgUrls';
 
 const projectList = [
       {
+        name: "TazWorks Instascreen",
+        siteUrl: "https://is-demo-evanmorrison.netlify.com",
+        imgUrl: projectUrls['Tazworks Instascreen'],
+        gitUrl: "https://github.com/EvanMorrison/IS-demo",
+        frameworks: ['ReactJS', 'Redux', 'Emotion', 'Webpack', 'Java', 'MySQL']
+      },{
         name: "Rich Text Editor",
         siteUrl: "https://draft-js-rte-evanmorrison.netlify.com",
         imgUrl: projectUrls['Rich Text Editor'],
