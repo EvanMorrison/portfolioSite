@@ -28,7 +28,7 @@ const projectList = [
         frameworks: ['ReactJS', 'Emotion', 'Webpack', 'Nextjs']
       },{
         name: "Therapy Business",
-        siteUrl: "https://manualtherapy4wellness.com",
+        siteUrl: "https://mt4w.netlify.com",
         imgUrl: projectUrls['Therapy Business'],
         gitUrl: "https://github.com/EvanMorrison/mt4w-romano",
         frameworks: ['ReactJS', 'Emotion', 'MaterialUI', 'Webpack']
