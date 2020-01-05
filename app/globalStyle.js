@@ -16,7 +16,7 @@ const globalStyle = css`
   }
 
   a {
-    color: #ff4040;
+    color: #0080dd;
     text-decoration: none;
   }
 

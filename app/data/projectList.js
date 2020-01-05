@@ -7,43 +7,43 @@ const projectList = [
         siteUrl: "https://is-demo-evanmorrison.netlify.com",
         imgUrl: projectUrls['Tazworks Instascreen'],
         gitUrl: "https://github.com/EvanMorrison/IS-demo",
-        frameworks: ['ReactJS', 'Redux', 'Emotion', 'Webpack', 'Java', 'MySQL']
+        frameworks: ['ReactJS', 'Redux', 'Webpack', 'Java', 'MySQL']
       },{
         name: "Rich Text Editor",
         siteUrl: "https://draft-js-rte-evanmorrison.netlify.com",
         imgUrl: projectUrls['Rich Text Editor'],
         gitUrl: "https://github.com/EvanMorrison/draft-js-rte",
-        frameworks: ['ReactJS', 'Emotion', 'Webpack', 'Nextjs']
+        frameworks: ['ReactJS', 'Nextjs']
       },{
         name: "Multiselect Component",
         siteUrl: "https://multiselect-demo-evanmorrison.netlify.com",
         imgUrl: projectUrls['Multiselect Demo'],
         gitUrl: "https://github.com/EvanMorrison/multiselect-demo",
-        frameworks: ['ReactJS', 'Emotion', 'Webpack', 'Nextjs']
+        frameworks: ['ReactJS', 'Nextjs']
       },{
         name: "Lymphatic Therapy",
         siteUrl: "https://dynamiclymphatics.com",
         imgUrl: projectUrls['Lymphatic Therapy'],
         gitUrl: "https://github.com/EvanMorrison/dynalymph-next",
-        frameworks: ['ReactJS', 'Emotion', 'Webpack', 'Nextjs']
+        frameworks: ['ReactJS', 'Nextjs']
       },{
         name: "Therapy Business",
         siteUrl: "https://mt4w.netlify.com",
         imgUrl: projectUrls['Therapy Business'],
         gitUrl: "https://github.com/EvanMorrison/mt4w-romano",
-        frameworks: ['ReactJS', 'Emotion', 'MaterialUI', 'Webpack']
+        frameworks: ['ReactJS', 'Webpack']
       },{
         name: "CPA Business Client",
         siteUrl: "http://moshero-cpa.firebaseapp.com",
         imgUrl: projectUrls['Moshero CPA Business'],
         gitUrl: "https://github.com/EvanMorrison/moshero-cpa",
-        frameworks: ['ReactJS', 'Emotion', 'Webpack']
+        frameworks: ['ReactJS', 'Nodejs', 'Webpack']
       },{
         name: "Portfolio Website",
         siteUrl: "http://www.evmorrison.com",
         imgUrl: projectUrls['Portfolio Site'],
         gitUrl: "https://github.com/EvanMorrison/portfolioSite",
-        frameworks: ['ReactJS', 'Emotion', 'MaterialUI', 'Nodejs','npm','ES6','Babel','Webpack']
+        frameworks: ['ReactJS', 'Nodejs', 'Webpack']
       },{
         name: "Real-T",
         siteUrl: "http://real-t.evmorrison.com",

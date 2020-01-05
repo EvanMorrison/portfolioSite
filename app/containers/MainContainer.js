@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
 
-import AppBar from '@material-ui/core/AppBar';
-import Menu from '@material-ui/core/Menu';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import Toolbar from '@material-ui/core/Toolbar';
-import { withStyles } from '@material-ui/core/styles';
+import Menu from '../components/Menu';
 
 import scrollToComponent from 'react-scroll-to-component';
 
@@ -16,21 +10,8 @@ import Contact from '../components/Contact';
 import AboutMe from '../components/AboutMe';
 import Projects from '../components/Projects';
 
-import { Global, css } from '@emotion/core';
+import { Global } from '@emotion/core';
 import globalStyles from '../globalStyle.js';
-
-const styles = {
-  root: {
-    backgroundColor: "transparent",
-    boxShadow: "none"
-  },
-  primary: {
-    color: '#FFF'
-  },
-  secondary: {
-    color: '#000'
-  }
-};
 
 class MainContainer extends Component {
   constructor(props){
@@ -40,14 +21,10 @@ class MainContainer extends Component {
       scrollToTarget: "Top",
       menuClick: false,
       appBarOpacity: 0,
-      menuButtonColor: '#FFF',
+      backgroundDark: false,
       open: false
     }
     this.menuBtn = React.createRef();
-    // this.Top = React.createRef();
-    // this.Contact = React.createRef();
-    // this.About = React.createRef();
-    // this.Projects = React.createRef();
   }
   
   componentDidMount() {
@@ -60,13 +37,13 @@ class MainContainer extends Component {
 
   handleScrolling(windowHeight) {
     if ( (window.scrollY / windowHeight) % 2 >= 1  || window.scrollY > (3 * windowHeight) ) {
-        this.setState(({menuButtonColor}) => {
-          if(menuButtonColor === '#FFF') return {menuButtonColor: '#000'}
+        this.setState(({backgroundDark}) => {
+          if(!backgroundDark) return {backgroundDark: true}
           else return null;
         });
-    } else {
-      this.setState(({menuButtonColor}) => {
-        if(menuButtonColor === '#000') return {menuButtonColor: '#FFF'}
+      } else {
+        this.setState(({backgroundDark}) => {
+          if(backgroundDark) return {backgroundDark: false}
         else return null;
       })
     } 
@@ -95,31 +72,19 @@ class MainContainer extends Component {
     return (
       <div>
         <Global styles={globalStyles}/>
-        <AppBar className={this.props.classes.root}>
-          <Toolbar>
-            <IconButton ref={this.menuBtn} onClick={this.handleOpenMenu}>
-              <div css={css`svg[class^='MuiSvgIcon']{color: ${this.state.menuButtonColor};}`}>
-                <MenuIcon className={this.props.classes.primary}/>
-              </div>
-            </IconButton>
-            <Menu 
-              anchorEl={this.state.anchorEl}
-              open={this.state.open}
-              >
-                <MenuItem onClick={this.handleMenuTap.bind(this)}>Top</MenuItem>
-                <MenuItem onClick={this.handleMenuTap.bind(this)}>Contact</MenuItem>
-                <MenuItem onClick={this.handleMenuTap.bind(this)}>About</MenuItem>
-                <MenuItem onClick={this.handleMenuTap.bind(this)}>Projects</MenuItem>
-              </Menu>
-          </Toolbar>
-        </AppBar>
+        <Menu css={{position: "fixed", top: 15}} onDark={this.state.backgroundDark}>
+            <li onClick={this.handleMenuTap.bind(this)}>Top</li>
+            <li onClick={this.handleMenuTap.bind(this)}>About</li>
+            <li onClick={this.handleMenuTap.bind(this)}>Contact</li>
+            <li onClick={this.handleMenuTap.bind(this)}>Projects</li>
+          </Menu>
         <Home ref={el => this.Top = el} />
-        <Contact ref={el => this.Contact = el}/>
         <AboutMe ref={el => this.About = el} />
+        <Contact ref={el => this.Contact = el}/>
         <Projects ref={el => this.Projects = el} />
       </div>
     )
   }  
 }
 
-export default withStyles(styles)(MainContainer);
+export default MainContainer;

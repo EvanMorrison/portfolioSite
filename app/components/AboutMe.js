@@ -11,13 +11,23 @@ const LogoGroup = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+
+  img {
+    height: 64px;
+    margin-right: 24px;
+    margin-top: 15px;
+
+    @media (max-width: 708px) {
+     height: 32px; 
+    }
+  }
 `
 
 class AboutMe extends Component {
   
   getLogos() {
     return Object.keys(logoUrls).filter((e,i) => i < 14).map(key =>
-      <img key={logoUrls[key]} src={logoUrls[key]} alt={key} height="64px" style={{marginRight:'24px', marginTop:'15px'}}/>
+      <img key={logoUrls[key]} src={logoUrls[key]} alt={key}/>
       )
   }
 

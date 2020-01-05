@@ -4,8 +4,7 @@ import ProjectCard from './ProjectCard.js';
 import {Section, SectionHeading} from './shared';
 
 import projectList from '../data/projectList';
-import { logoUrls } from '../data/imgUrls';
-import bgImg from '../images/heros/rock-ocean-sky-1080x720.jpeg'
+import { heroUrls } from '../data/imgUrls';
 
 const ProjectSection = styled(Section)`
   padding-bottom: 200px;
@@ -16,11 +15,11 @@ const ProjectSection = styled(Section)`
   content: ' ';
   height: 100%;
   width: 100%;
-  background: url(${bgImg});
-  background-size: cover, cover;
-  background-repeat: no-repeat, no-repeat;
-  background-position: bottom left, bottom center;
-  background-attachment: fixed, fixed; 
+  background: linear-gradient(rgba(200, 200, 200, 0.3), rgba(200, 200, 200, 0.3)), url(${heroUrls[1]});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-attachment: fixed; 
   z-index: -1;
 }
 `
