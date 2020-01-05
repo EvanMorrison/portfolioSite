@@ -81,7 +81,7 @@ module.exports = (env = {}) => {
             new TerserPlugin({
             parallel: true
           })],
-          runtimeChunk: isProduction ? "single" : false,
+          runtimeChunk: true,
           splitChunks: {
             chunks: 'all',
             name: true,
