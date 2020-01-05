@@ -7,7 +7,7 @@ const Menu = ({onDark, ...props}) => {
     setOpen(open => !open);
   }
 
-  const background = onDark ? 'rgba(0, 0, 0, 0.2)' : 'rgba(250, 250, 250, 0.3)';
+  const background = onDark ? 'rgba(0, 0, 0, 0.3)' : 'rgba(250, 250, 250, 0.3)';
   const color = onDark ? 'rgba(240, 240, 240, 0.8)' : 'rgba(50, 50, 50, 0.8)';
   const shadow = onDark ? 'rgba(255, 255, 255, 0.5)' : 'rgba(0, 0, 0, 0.5)';
   return(

@@ -18,6 +18,15 @@ const ContactInfoGroup = styled.div`
   align-items: left;
   width: 90%;
   max-width: 400px;
+  a {
+    color: #f58;
+  }
+
+  @media (min-width: 650px) {
+      a {
+      font-size: 20px;
+    }
+  }
 `
 const ContactItem = styled.p`
   margin: 20px 0 20px 0px;

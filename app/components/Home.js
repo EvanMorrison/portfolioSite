@@ -6,12 +6,25 @@ import { heroUrls } from '../data/imgUrls';
 const Root = styled.div`
   position: relative;
   height: 100vh;
-  transition: background 0.8s linear;
-  background: url(${props => props.bgImg});
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
   overflow: hidden;
+
+  :after {
+    position: absolute;
+    z-index: -1;
+    content: '';
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    transition: background 0.8s linear;
+    background-image: url(${props => props.bgImg});
+    filter: contrast(115%) opacity(0.9);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;    
+  }
 `
 const TitleGroup = styled.div`
   position: relative;
@@ -43,13 +56,13 @@ const SubTitle = styled.h2`
 class Home extends Component {
 
   state = {
-    imgIndex: 0,
-    count: -1
+    imgIndex: 8,
+    count: 0
   }
 
   componentDidMount() {
     // rotate through background images at top of page
-    this.timer = setInterval(this.changeBGImage, 5000);
+    // this.timer = setInterval(this.changeBGImage, 5000);
     }
     
   componentWillUnmount() {
@@ -68,9 +81,7 @@ class Home extends Component {
     clearInterval(this.timer);
     let count = this.state.imgIndex + 1;
 
-    this.setState({count, imgIndex: count % heroUrls.length}, () => {
-      this.timer = setInterval(this.changeBGImage, 5000);
-    });
+    this.setState({count, imgIndex: count % heroUrls.length});
   }
   render() {
   return (

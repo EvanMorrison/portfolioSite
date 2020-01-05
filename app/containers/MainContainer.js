@@ -21,14 +21,10 @@ class MainContainer extends Component {
       scrollToTarget: "Top",
       menuClick: false,
       appBarOpacity: 0,
-      backgroundDark: true,
+      backgroundDark: false,
       open: false
     }
     this.menuBtn = React.createRef();
-    // this.Top = React.createRef();
-    // this.Contact = React.createRef();
-    // this.About = React.createRef();
-    // this.Projects = React.createRef();
   }
   
   componentDidMount() {
@@ -42,12 +38,12 @@ class MainContainer extends Component {
   handleScrolling(windowHeight) {
     if ( (window.scrollY / windowHeight) % 2 >= 1  || window.scrollY > (3 * windowHeight) ) {
         this.setState(({backgroundDark}) => {
-          if(backgroundDark) return {backgroundDark: false}
+          if(!backgroundDark) return {backgroundDark: true}
           else return null;
         });
-    } else {
-      this.setState(({backgroundDark}) => {
-        if(!backgroundDark) return {backgroundDark: true}
+      } else {
+        this.setState(({backgroundDark}) => {
+          if(backgroundDark) return {backgroundDark: false}
         else return null;
       })
     } 
@@ -78,13 +74,13 @@ class MainContainer extends Component {
         <Global styles={globalStyles}/>
         <Menu css={{position: "fixed", top: 15}} onDark={this.state.backgroundDark}>
             <li onClick={this.handleMenuTap.bind(this)}>Top</li>
-            <li onClick={this.handleMenuTap.bind(this)}>Contact</li>
             <li onClick={this.handleMenuTap.bind(this)}>About</li>
+            <li onClick={this.handleMenuTap.bind(this)}>Contact</li>
             <li onClick={this.handleMenuTap.bind(this)}>Projects</li>
           </Menu>
         <Home ref={el => this.Top = el} />
-        <Contact ref={el => this.Contact = el}/>
         <AboutMe ref={el => this.About = el} />
+        <Contact ref={el => this.Contact = el}/>
         <Projects ref={el => this.Projects = el} />
       </div>
     )
