@@ -4,7 +4,6 @@ import ProjectCard from './ProjectCard.js';
 import {Section, SectionHeading} from './shared';
 
 import projectList from '../data/projectList';
-import { logoUrls } from '../data/imgUrls';
 import bgImg from '../images/heros/rock-ocean-sky-1080x720.jpeg'
 
 const ProjectSection = styled(Section)`

@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
 import styled from '@emotion/styled';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
-import IconButton from '@material-ui/core/IconButton';
-import Tooltip from '@material-ui/core/Tooltip';
 import { css } from '@emotion/core';
 import { logoUrls } from '../data/imgUrls';
 
@@ -44,48 +39,40 @@ class ProjectCard extends Component {
     const project = this.props.project;
     return (
             <CardContainer>
-              <Card>
+              <div>
                 <a href={project.siteUrl} target='_blank' css={{':hover':{textDecoration: 'none'}}}>
-                  <CardMedia
-                    component='img'
-                    image={project.imgUrl}
+                  <img
+                    src={project.imgUrl}
                     height='350'
+                    width='100%'
                   />
                   <div css={css`
-                    .custom-card-header {
                       position: absolute;
                       left: 0;
                       right: 0;
                       bottom: 0;
                       background: rgba(0, 0, 0, 0.4);
                       color: #FFF;
-                    }
+                      height: 80px;
                   `}>
-                    <CardHeader
-                      className='custom-card-header'
-                      avatar={
-                        <span>
-                          <div css={{fontSize: '24px'}}>
-                            {project.name}
-                          </div>
-                          <span>
-                            {this.getLogos(project.frameworks)}
-                          </span>
-                        </span>}
-                      css={{height: '80px'}}>
-                    </CardHeader>
+                    <span>
+                      <div css={{fontSize: '24px'}}>
+                        {project.name}
+                      </div>
+                      <span>
+                        {this.getLogos(project.frameworks)}
+                      </span>
+                    </span>
                   </div>
                 </a>
-                <Tooltip title='see repo on github' placement='top'>
-                  <IconButton
-                    href={project.gitUrl}
-                    target='_blank'
-                    css={{position:'absolute', bottom:'5px', right:'20px', zIndex:'1000'}}
-                  >
-                    <img src={logoUrls['Github']} alt='Github' height='36px' css={{background: '#FFF', borderRadius: '50%'}}/>
-                  </IconButton>
-                </Tooltip>
-              </Card>
+                {/* <Tooltip title='see repo on github' placement='top'> */}
+                  <div css={{position:'absolute', bottom:'5px', right:'20px', zIndex:'1000'}}>
+                    <a href={project.gitUrl} target='_blank'>
+                      <img src={logoUrls['Github']} alt='Github' height='36px' css={{background: '#FFF', borderRadius: '50%'}}/>
+                    </a>
+                  </div>
+                {/* </Tooltip> */}
+              </div>
             </CardContainer>
 
     )
