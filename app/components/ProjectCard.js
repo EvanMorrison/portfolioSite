@@ -35,7 +35,7 @@ class ProjectCard extends Component {
   getLogos(frameworks) {
     return (
       frameworks.map(framework => {
-        return <OverlayLogo key={framework} src={logoUrls[framework]} alt="framework"/>
+        return <OverlayLogo key={framework} src={logoUrls[framework]} title={framework} alt={framework}/>
       })
     )
   }

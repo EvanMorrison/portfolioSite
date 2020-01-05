@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 
 import AppBar from '@material-ui/core/AppBar';
 import Menu from '@material-ui/core/Menu';
@@ -58,6 +57,7 @@ class MainContainer extends Component {
           this.handleScrolling(window.innerHeight)
       })
   }
+
   handleScrolling(windowHeight) {
     if ( (window.scrollY / windowHeight) % 2 >= 1  || window.scrollY > (3 * windowHeight) ) {
         this.setState(({menuButtonColor}) => {
