@@ -32,7 +32,7 @@ module.exports = (env = {}) => {
         },
 
         devtool: (() => {
-            if (isProduction) return 'hidden-source-map'
+            if (isProduction) return false
             else return 'cheap-module-eval-source-map'
         })(),
 
