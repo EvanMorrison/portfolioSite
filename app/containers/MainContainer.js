@@ -76,7 +76,7 @@ class MainContainer extends Component {
     return (
       <div>
         <Global styles={globalStyles}/>
-        <Menu css={{position: "fixed", top: 30, left: 30}} onDark={this.state.backgroundDark}>
+        <Menu css={{position: "fixed", top: 15}} onDark={this.state.backgroundDark}>
             <li onClick={this.handleMenuTap.bind(this)}>Top</li>
             <li onClick={this.handleMenuTap.bind(this)}>Contact</li>
             <li onClick={this.handleMenuTap.bind(this)}>About</li>

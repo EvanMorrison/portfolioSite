@@ -39,11 +39,10 @@ class ProjectCard extends Component {
     const project = this.props.project;
     return (
             <CardContainer>
-              <div>
                 <a href={project.siteUrl} target='_blank' css={{':hover':{textDecoration: 'none'}}}>
                   <img
                     src={project.imgUrl}
-                    height='350'
+                    height='100%'
                     width='100%'
                   />
                   <div css={css`
@@ -51,6 +50,7 @@ class ProjectCard extends Component {
                       left: 0;
                       right: 0;
                       bottom: 0;
+                      padding: 3px;
                       background: rgba(0, 0, 0, 0.4);
                       color: #FFF;
                       height: 80px;
@@ -72,7 +72,6 @@ class ProjectCard extends Component {
                     </a>
                   </div>
                 {/* </Tooltip> */}
-              </div>
             </CardContainer>
 
     )

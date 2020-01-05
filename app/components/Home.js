@@ -45,34 +45,38 @@ let timer;
 class Home extends Component {
 
   state = {
-    bgImg: heroUrls[0],
+    imgIndex: 0,
     count: -1
   }
 
-  componentWillMount = () => {
-    let length = heroUrls.length;
+  componentDidMount() {
     // rotate through background images at top of page
-    timer = setInterval(() => {
-      let count = this.state.count;
-      let bgi = this.state.bgImg;
-      let rand = Math.floor(Math.random() * length)
-
-      this.setState({count: ++count, bgImg: heroUrls[(count > length ? rand : count) % length]});
-    }, 5000)
-  }
-
-  componentWillUnmount = () => {
-    clearInterval(timer);
+    timer = setInterval(this.changeBGImage, 5000);
+    }
+    
+    componentWillUnmount = () => {
+      clearInterval(timer);
+    }
+    
+  changeBGImage = () => {
+    let length = heroUrls.length;
+    let count = this.state.count;
+    let rand = Math.floor(Math.random() * length)
+    this.setState({count: ++count, imgIndex: (count > length ? rand : count) % length});
   }
 
   handleClick = (e) => {
     e.preventDefault();
-    let count = this.state.count + 1;
-    this.setState({count, bgImg: heroUrls[count % heroUrls.length]})
+    clearInterval(timer);
+    let count = this.state.imgIndex + 1;
+
+    this.setState({count, imgIndex: count % heroUrls.length}, () => {
+      timer = setInterval(this.changeBGImage, 5000);
+    });
   }
   render() {
   return (
-      <Root bgImg={this.state.bgImg} onClick={this.handleClick}>
+      <Root bgImg={heroUrls[this.state.imgIndex]} onClick={this.handleClick}>
         <TitleGroup>
           <MainTitle>Evan Morrison</MainTitle>
           <SubTitle>Software Engineer / Web Developer</SubTitle>
