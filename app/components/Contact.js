@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import {Section, SectionHeading} from './shared';
 import ermAvatar from '../images/avatar-bkg-bw.jpg';
@@ -42,12 +43,12 @@ class Contact extends React.Component {
         </div>
         <ContactInfoGroup>
           <ContactItem>
-            <span css={{fontSize: 32, marginRight: 25, position: 'relative', top: 15}}></span>
+            <FontAwesomeIcon icon={['far', 'envelope']} css={{marginRight: 25, fontSize: '26px'}}/>
             <a href="mailto:evanrmorrison@gmail.com">evanrmorrison@gmail.com</a>
           </ContactItem> 
           <hr />
           <ContactItem>
-            <span css={{fontSize: 32, marginRight: 25, position: 'relative', top: 15}}></span>
+            <FontAwesomeIcon icon={['fas', 'phone']} css={{marginRight: 25, fontSize: '26px'}}/>
             <a href="tel:801-792-9290">801-792-9290</a>
           </ContactItem>
           <hr />
@@ -57,7 +58,7 @@ class Contact extends React.Component {
           </ContactItem>
           <hr />
           <ContactItem>
-            <span css={{fontSize: 32, marginRight: 25, position: 'relative', top: 15}}></span>
+            <FontAwesomeIcon icon={['far', 'file-alt']} css={{marginRight: 36, fontSize: '26px'}}/>
             <a href="https://drive.google.com/file/d/0B8qa-UZelBhOQXUzb0h4MDg1Wmc/view?usp=sharing" target="_blank">view/download resume</a>
           </ContactItem>
         </ContactInfoGroup>
