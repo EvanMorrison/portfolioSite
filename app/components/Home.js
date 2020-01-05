@@ -6,9 +6,8 @@ import { heroUrls } from '../data/imgUrls';
 const Root = styled.div`
   position: relative;
   height: 100vh;
-  background-color: black;
-  transition: background-image .8s linear;
-  background-image: url(${props => props.bgImg});
+  transition: background 0.8s linear;
+  background: url(${props => props.bgImg});
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
@@ -40,7 +39,6 @@ const SubTitle = styled.h2`
   text-shadow: 1px 1px 3px #555;
   color: #0a0a0a;
 `
-let timer;
 
 class Home extends Component {
 
@@ -51,12 +49,12 @@ class Home extends Component {
 
   componentDidMount() {
     // rotate through background images at top of page
-    timer = setInterval(this.changeBGImage, 5000);
+    this.timer = setInterval(this.changeBGImage, 5000);
     }
     
-    componentWillUnmount = () => {
-      clearInterval(timer);
-    }
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
     
   changeBGImage = () => {
     let length = heroUrls.length;
@@ -67,11 +65,11 @@ class Home extends Component {
 
   handleClick = (e) => {
     e.preventDefault();
-    clearInterval(timer);
+    clearInterval(this.timer);
     let count = this.state.imgIndex + 1;
 
     this.setState({count, imgIndex: count % heroUrls.length}, () => {
-      timer = setInterval(this.changeBGImage, 5000);
+      this.timer = setInterval(this.changeBGImage, 5000);
     });
   }
   render() {
