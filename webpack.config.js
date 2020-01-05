@@ -11,17 +11,9 @@ module.exports = (env = {}) => {
     return {
         
         entry: (() => {
-            if (isProduction) return {
-                index: './app/index.js',
-                vendor: [
-                        '@material-ui/core',
-                        'react',
-                        'react-dom',
-                        'react-router',
-                        'react-scroll-to-component',
-                        'react-tap-event-plugin'
-                ]
-            }
+            if (isProduction) return [
+                './app/index.js'
+            ]
             else {
                 return [
                          'webpack-hot-middleware/client',
@@ -91,13 +83,8 @@ module.exports = (env = {}) => {
           })],
           runtimeChunk: isProduction ? "single" : false,
           splitChunks: {
-            cacheGroups: {
-              commons: {
-                name: "commons",
-                chunks: "initial",
-                minChunks: 2
-              }
-            }
+            chunks: 'all',
+            name: true,
           }
         },
         plugins: (() => {
@@ -114,7 +101,6 @@ module.exports = (env = {}) => {
                 pluginList.push(
                     // plugins for production only
                     new CleanWebpackPlugin(),
-                    new webpack.HashedModuleIdsPlugin(),
                     new CompressionPlugin({  
                       filename: "[path].gz[query]",
                       algorithm: "gzip",
