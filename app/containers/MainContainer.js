@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Menu from '../components/Menu';
 
-import scrollToComponent from 'react-scroll-to-component';
+import scrollToElement from 'scroll-to-element';
 
 // Customized Components
 import Home from '../components/Home';
@@ -78,7 +78,7 @@ class MainContainer extends Component {
       menuClick: true,
       section,
     }, () => {
-      scrollToComponent(this[sectionName].current, {
+      scrollToElement(this[sectionName].current, {
         align: 'top',
         duration: 1000
       })
