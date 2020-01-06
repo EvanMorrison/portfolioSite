@@ -75,7 +75,10 @@ const Menu = ({onDark, ...props}) => {
             userSelect: 'none',
             ':hover': {
               cursor: 'pointer',
-              background: 'rgba(150, 150, 150, 0.5)' 
+              background: 'rgba(150, 150, 150, 0.5)'
+            },
+            [`:nth-of-type(${props.section})`]: {
+              background: `rgba(${props.section % 2 === 0 ? '100, 100, 100, 0.5' : '200, 200, 200, 0.5'})`
             }
           }
         },

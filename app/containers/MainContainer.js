@@ -17,71 +17,101 @@ class MainContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      anchorEl: null,
-      scrollToTarget: "Top",
       menuClick: false,
-      appBarOpacity: 0,
       backgroundDark: false,
-      open: false
     }
-    this.menuBtn = React.createRef();
+    this.section1 = React.createRef();
+    this.section2 = React.createRef();
+    this.section3 = React.createRef();
   }
   
   componentDidMount() {
-    this.lastScroll = 0;
-      window.addEventListener('scroll', () => {
-        if (!this.state.menuClick)
-          this.handleScrolling(window.innerHeight)
-      })
+    this.handleScrolling();
+    window.onscroll = this.handleScrolling;
   }
 
-  handleScrolling(windowHeight) {
-    if ( (window.scrollY / windowHeight) % 2 >= 1  || window.scrollY > (3 * windowHeight) ) {
-        this.setState(({backgroundDark}) => {
-          if(!backgroundDark) return {backgroundDark: true}
+  componentWillUnmount() {
+    window.onscroll = null;
+  }
+
+  handleScrolling = (windowHeight) => {
+    if (!this.state.menuClick) {
+      const scroll = window.scrollY;
+      const section1End = this.section1.current.getBoundingClientRect().height - 30;
+      const section2End = section1End + this.section2.current.getBoundingClientRect().height;
+      const section3End = section2End + this.section3.current.getBoundingClientRect().height;
+      let scrollSection = 1;
+      if (scroll > section3End) {
+        scrollSection = 4;
+      } else if (scroll > section2End) {
+        scrollSection = 3;
+      } else if (scroll > section1End) {
+        scrollSection = 2;
+      }
+
+      if ([2, 4].includes(scrollSection)) {
+          this.setState(({backgroundDark}) => {
+            if(!backgroundDark) return {backgroundDark: true, section: scrollSection}
+            else return null;
+          });
+        } else {
+          this.setState(({backgroundDark}) => {
+            if(backgroundDark) return {backgroundDark: false, section: scrollSection}
           else return null;
-        });
-      } else {
-        this.setState(({backgroundDark}) => {
-          if(backgroundDark) return {backgroundDark: false}
-        else return null;
+        })
+      }
+    }
+  }
+
+  handleMenuTap = (ev) => {
+    const sectionName = ev.target.textContent;
+    let section = 1;
+    if (sectionName === 'About') {
+      section = 2;
+    } else if (sectionName === 'Contact') {
+      section = 3;
+    } else if (sectionName === 'Projects') {
+      section = 4;
+    }
+    this.setState({
+      menuClick: true,
+      section,
+    }, () => {
+      scrollToComponent(this[sectionName], {
+        align: 'top',
+        duration: 1000
       })
-    } 
-  }
-
-  handleMenuTap(ev) {
-    this.setState({
-      menuClick: true
-    })
-    scrollToComponent(this[ev.target.textContent], {
-      align: 'top',
-      duration: 1000
-    })
-    this.setState({
-      menuClick: false,
-      open: false
+      setTimeout(() => {
+        this.setState({
+          menuClick: false,
+          section,
+        })
+      }, 950);
     })
   }
-
-  handleOpenMenu = (e) => {
-    this.setState({open: true, anchorEl: e.currentTarget});
-  }
-  
     
   render () {
     return (
       <div>
         <Global styles={globalStyles}/>
-        <Menu css={{position: "fixed", top: 15}} onDark={this.state.backgroundDark}>
-            <li onClick={this.handleMenuTap.bind(this)}>Top</li>
-            <li onClick={this.handleMenuTap.bind(this)}>About</li>
-            <li onClick={this.handleMenuTap.bind(this)}>Contact</li>
-            <li onClick={this.handleMenuTap.bind(this)}>Projects</li>
+        <Menu css={{position: "fixed", top: 15}} onDark={this.state.backgroundDark} section={this.state.section}>
+            <li onClick={this.handleMenuTap}>Top</li>
+            <li onClick={this.handleMenuTap}>About</li>
+            <li onClick={this.handleMenuTap}>Contact</li>
+            <li onClick={this.handleMenuTap}>Projects</li>
           </Menu>
-        <Home ref={el => this.Top = el} />
-        <AboutMe ref={el => this.About = el} />
-        <Contact ref={el => this.Contact = el}/>
-        <Projects ref={el => this.Projects = el} />
+        <section ref={this.section1}>
+          <Home ref={el => this.Top = el} />
+        </section>
+        <section ref={this.section2}>
+          <AboutMe ref={el => this.About = el} />
+        </section>
+        <section ref={this.section3}>
+          <Contact ref={el => this.Contact = el}/>
+        </section>
+        <section>
+          <Projects ref={el => this.Projects = el} />
+        </section>
       </div>
     )
   }  
