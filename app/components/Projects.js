@@ -8,20 +8,11 @@ import { heroUrls } from '../data/imgUrls';
 
 const ProjectSection = styled(Section)`
   padding-bottom: 200px;
-  &::after {
-  position: absolute;
-  top: 0;
-  left: 0;
-  content: ' ';
-  height: 100%;
-  width: 100%;
   background-image: linear-gradient(rgba(200, 200, 200, 0.3), rgba(200, 200, 200, 0.3)), url(${heroUrls[1]});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom center;
   background-attachment: fixed; 
-  z-index: -1;
-}
 `
 const ProjectTitleGroup = styled.div`
   width: 90%;
