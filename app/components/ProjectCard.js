@@ -26,8 +26,8 @@ const OverlayLogo = styled.img`
   border: 1px transparent;
   border-radius: 5px;
 `
-class ProjectCard extends Component {
-  getLogos(frameworks) {
+const ProjectCard = ({project}) => {
+  function getLogos(frameworks) {
     return (
       frameworks.map(framework => {
         return <OverlayLogo key={framework} src={logoUrls[framework]} title={framework} alt={framework}/>
@@ -35,47 +35,41 @@ class ProjectCard extends Component {
     )
   }
 
-  render() {
-    const project = this.props.project;
-    return (
-            <CardContainer>
-                <a href={project.siteUrl} target='_blank' css={{':hover':{textDecoration: 'none'}}}>
-                  <img
-                    src={project.imgUrl}
-                    height='100%'
-                    width='100%'
-                  />
-                  <div css={css`
-                      position: absolute;
-                      left: 0;
-                      right: 0;
-                      bottom: 0;
-                      padding: 3px;
-                      background: rgba(0, 0, 0, 0.4);
-                      color: #FFF;
-                      height: 80px;
-                  `}>
-                    <span>
-                      <div css={{fontSize: '24px'}}>
-                        {project.name}
-                      </div>
-                      <span>
-                        {this.getLogos(project.frameworks)}
-                      </span>
-                    </span>
-                  </div>
-                </a>
-                {/* <Tooltip title='see repo on github' placement='top'> */}
-                  <div css={{position:'absolute', bottom:'5px', right:'20px', zIndex:'1000'}}>
-                    <a href={project.gitUrl} target='_blank'>
-                      <img src={logoUrls['Github']} alt='Github' height='36px' css={{background: '#FFF', borderRadius: '50%'}}/>
-                    </a>
-                  </div>
-                {/* </Tooltip> */}
-            </CardContainer>
-
-    )
-  }
+  return (
+    <CardContainer>
+      <a href={project.siteUrl} target='_blank' css={{':hover':{textDecoration: 'none'}}}>
+        <img
+          src={project.imgUrl}
+          height='100%'
+          width='100%'
+        />
+        <div css={css`
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 3px;
+            background: rgba(0, 0, 0, 0.4);
+            color: #FFF;
+            height: 80px;
+        `}>
+          <span>
+            <div css={{fontSize: '24px'}}>
+              {project.name}
+            </div>
+            <span>
+              {getLogos(project.frameworks)}
+            </span>
+          </span>
+        </div>
+      </a>
+      <div css={{position:'absolute', bottom:'5px', right:'20px', zIndex:'1000'}}>
+        <a href={project.gitUrl} target='_blank'>
+          <img src={logoUrls['Github']} alt='Github' height='36px' css={{background: '#FFF', borderRadius: '50%'}}/>
+        </a>
+      </div>
+    </CardContainer>
+  )
 }
 
 export default ProjectCard;

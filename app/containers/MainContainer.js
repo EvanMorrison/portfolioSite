@@ -20,9 +20,10 @@ class MainContainer extends Component {
       menuClick: false,
       backgroundDark: false,
     }
-    this.section1 = React.createRef();
-    this.section2 = React.createRef();
-    this.section3 = React.createRef();
+    this.Top = React.createRef();
+    this.About = React.createRef();
+    this.Contact = React.createRef();
+    this.Projects = React.createRef();
   }
   
   componentDidMount() {
@@ -37,9 +38,9 @@ class MainContainer extends Component {
   handleScrolling = (windowHeight) => {
     if (!this.state.menuClick) {
       const scroll = window.scrollY;
-      const section1End = this.section1.current.getBoundingClientRect().height - 30;
-      const section2End = section1End + this.section2.current.getBoundingClientRect().height;
-      const section3End = section2End + this.section3.current.getBoundingClientRect().height;
+      const section1End = this.Top.current.getBoundingClientRect().height - 30;
+      const section2End = section1End + this.About.current.getBoundingClientRect().height;
+      const section3End = section2End + this.Contact.current.getBoundingClientRect().height;
       let scrollSection = 1;
       if (scroll > section3End) {
         scrollSection = 4;
@@ -77,7 +78,7 @@ class MainContainer extends Component {
       menuClick: true,
       section,
     }, () => {
-      scrollToComponent(this[sectionName], {
+      scrollToComponent(this[sectionName].current, {
         align: 'top',
         duration: 1000
       })
@@ -92,27 +93,19 @@ class MainContainer extends Component {
     
   render () {
     return (
-      <div>
+      <>
         <Global styles={globalStyles}/>
         <Menu css={{position: "fixed", top: 15}} onDark={this.state.backgroundDark} section={this.state.section}>
-            <li onClick={this.handleMenuTap}>Top</li>
-            <li onClick={this.handleMenuTap}>About</li>
-            <li onClick={this.handleMenuTap}>Contact</li>
-            <li onClick={this.handleMenuTap}>Projects</li>
-          </Menu>
-        <section ref={this.section1}>
-          <Home ref={el => this.Top = el} />
-        </section>
-        <section ref={this.section2}>
-          <AboutMe ref={el => this.About = el} />
-        </section>
-        <section ref={this.section3}>
-          <Contact ref={el => this.Contact = el}/>
-        </section>
-        <section>
-          <Projects ref={el => this.Projects = el} />
-        </section>
-      </div>
+          <li onClick={this.handleMenuTap}>Top</li>
+          <li onClick={this.handleMenuTap}>About</li>
+          <li onClick={this.handleMenuTap}>Contact</li>
+          <li onClick={this.handleMenuTap}>Projects</li>
+        </Menu>
+        <Home ref={this.Top} />
+        <AboutMe ref={this.About} />
+        <Contact ref={this.Contact}/>
+        <Projects ref={this.Projects} />
+      </>
     )
   }  
 }

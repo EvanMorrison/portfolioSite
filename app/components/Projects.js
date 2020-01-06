@@ -4,11 +4,11 @@ import ProjectCard from './ProjectCard.js';
 import {Section, SectionHeading} from './shared';
 
 import projectList from '../data/projectList';
-import { heroUrls } from '../data/imgUrls';
+import bgImage from '../images/heros/macbook-from-back-1080x720.jpg';
 
 const ProjectSection = styled(Section)`
   padding-bottom: 200px;
-  background-image: linear-gradient(rgba(200, 200, 200, 0.3), rgba(200, 200, 200, 0.3)), url(${heroUrls[1]});
+  background-image: linear-gradient(rgba(200, 200, 200, 0.3), rgba(200, 200, 200, 0.3)), url(${bgImage});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom center;
@@ -17,7 +17,7 @@ const ProjectSection = styled(Section)`
 const ProjectTitleGroup = styled.div`
   width: 90%;
   max-width: 500px;
-  padding:10px 20px;
+  padding:10px 10px 30px;
   border: 2px solid rgba(127, 125, 105,0.8);
   background-color: rgba(230, 230, 230, 0.8);
   margin:0 auto;
@@ -39,32 +39,29 @@ const CardGroup = styled.div`
   padding-top: 30px
 `
 
-class Projects extends Component {
-  CreateCards () {
+const Projects = React.forwardRef((props, ref) => {
+  function createCards () {
     return (
       projectList.filter(el => el.siteUrl.length > 1 )
       .map(project => {
-        return <ProjectCard  key={project.name}
-                             project={project} />
+        return <ProjectCard key={project.name} project={project}/>
       })
     )
   }
-  render() {
-    return (
-      <ProjectSection>
-        <ProjectTitleGroup>
-          <SectionHeading>
-            SAMPLE PROJECTS
-          </SectionHeading>
-          <H2>Click a website image to visit the live site.</H2>
-          <H2>Github icons are linked to the corresponding repo.</H2> 
-        </ProjectTitleGroup>
-        <CardGroup>
-          {this.CreateCards()}
-        </CardGroup>
-      </ProjectSection>
-    )
-  }
-}
+  return (
+    <ProjectSection ref={ref}>
+      <ProjectTitleGroup>
+        <SectionHeading>
+          SAMPLE PROJECTS
+        </SectionHeading>
+        <H2>Click a website image to visit the live site.</H2>
+        <H2>Github icons are linked to the corresponding repo.</H2> 
+      </ProjectTitleGroup>
+      <CardGroup>
+        {createCards()}
+      </CardGroup>
+    </ProjectSection>
+  )
+})
 
 export default Projects;
