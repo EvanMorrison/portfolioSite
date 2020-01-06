@@ -72,6 +72,7 @@ const Menu = ({onDark, ...props}) => {
             display: 'inline-block',
             color,
             padding: 12,
+            userSelect: 'none',
             ':hover': {
               cursor: 'pointer',
               background: 'rgba(150, 150, 150, 0.5)' 

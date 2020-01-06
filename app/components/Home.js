@@ -21,6 +21,7 @@ const Root = styled.div`
     transition: background 0.8s linear;
     background-image: url(${props => props.bgImg});
     filter: contrast(115%) opacity(0.9);
+    background-position: center center;
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;    
