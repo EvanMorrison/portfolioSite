@@ -23,7 +23,6 @@ if (process.env.NODE_ENV !== 'production') {
   const compiler = webpack(config);
   const instance = webpackDevMiddleware(compiler, {
     publicPath: config.output.publicPath,
-    logLevel: 'debug',
     stats: {
       normal: true,
       colors: true

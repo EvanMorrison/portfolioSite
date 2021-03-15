@@ -1,7 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
+const ESLintWebpackPlugin = require('eslint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const TerserPlugin = require("terser-webpack-plugin");
 
@@ -33,7 +34,7 @@ module.exports = (env = {}) => {
 
         devtool: (() => {
             if (isProduction) return false
-            else return 'cheap-module-eval-source-map'
+            else return 'eval-cheap-module-source-map'
         })(),
 
         devServer: (() => { 
@@ -53,12 +54,6 @@ module.exports = (env = {}) => {
               exclude: /node_modules/,
               use: [{
                 loader: 'babel-loader'
-              }, {
-                loader: "eslint-loader",
-                options: {
-                  emitWarning: true,
-                  failOnWarning: false
-                }
               }]
             },
             {
@@ -68,7 +63,9 @@ module.exports = (env = {}) => {
                   loader: "url-loader",
                   options: {
                     limit: 10000,
-                    name: 'assets/[name].[hash].[ext]'
+                    name: 'assets/[name].[hash].[ext]',
+                    fallback: 'file-loader',
+                    esModule: false,
                   }
                 }
               ]
@@ -84,7 +81,7 @@ module.exports = (env = {}) => {
           runtimeChunk: true,
           splitChunks: {
             chunks: 'all',
-            name: true,
+            name: false,
           }
         },
         plugins: (() => {
@@ -94,6 +91,11 @@ module.exports = (env = {}) => {
                     template: __dirname + '/app/index.html',
                     filename: 'index.html',
                     inject: 'body'
+                }),
+                new ESLintWebpackPlugin({
+                  lintDirtyModulesOnly: true,
+                  emitWarning: true,
+                  failOnWarning: false,
                 })
             ]
             
@@ -102,13 +104,11 @@ module.exports = (env = {}) => {
                     // plugins for production only
                     new CleanWebpackPlugin(),
                     new CompressionPlugin({  
-                      filename: "[path].gz[query]",
+                      filename: "[path][base].gz[query]",
                       algorithm: "gzip",
-                      compressionOptions: {
-                        threshold: 10240,
-                        test: /\.js$|\.css$|\.html$/,
-                        minRatio: 0.8
-                      }
+                      threshold: 10240,
+                      test: /\.js$|\.css$|\.html$/,
+                      minRatio: 0.8
                     })
                 )
             } else {

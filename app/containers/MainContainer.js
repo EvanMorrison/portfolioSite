@@ -10,7 +10,7 @@ import Contact from '../components/Contact';
 import AboutMe from '../components/AboutMe';
 import Projects from '../components/Projects';
 
-import { Global } from '@emotion/core';
+import { Global } from '@emotion/react';
 import globalStyles from '../globalStyle.js';
 
 class MainContainer extends Component {

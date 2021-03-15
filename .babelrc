@@ -8,20 +8,20 @@
             "defaults and not ie <= 11 and not android < 5 and not dead"
           ]
         },
-        "useBuiltIns": "entry"
+        "useBuiltIns": "entry",
+        "corejs": 3
       }
     ],
-    "@babel/preset-react",
     [
-      "@emotion/babel-preset-css-prop",
+      "@babel/preset-react",
       {
-        "autoLabel": true,
-        "labelFormat": "[local]",
-        "sourceMap": true
+        "runtime": "automatic",
+        "importSource": "@emotion/react"
       }
     ]
   ],
   "plugins": [
-    "@babel/plugin-proposal-class-properties"
+    "@babel/plugin-proposal-class-properties",
+    "@emotion/babel-plugin"
   ]
 }
