@@ -30,7 +30,6 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
-    "react-tap-event-plugin": "^3.0.3",
     "scroll-to-element": "^2.0.3"
   },
   "devDependencies": {
